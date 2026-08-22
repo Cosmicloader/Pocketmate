@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PocketMate</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="page-index">
+    <main class="loading-screen">
+      <img class="loading-background" src="assets/images/loading.png" alt="" />
+      <section class="loading-container">
+        <div class="logo">
+          <img
+            src="assets/images/logo.png"
+            alt="PocketMate Logo"
+            onerror="
+              this.src = 'https://via.placeholder.com/72/6C4EF6/FFFFFF?text=PM'
+            "
+          />
+        </div>
+        <h1 class="site-name">PocketMate</h1>
+        <div class="loading-bar">
+          <div class="loading-progress"></div>
+        </div>
+        <p class="loading-text">Loading your finances...</p>
+      </section>
+    </main>
+    <script>
+      setTimeout(function () {
+        window.location.href = "homepage.html";
+      }, 5000);
+    </script>
+  </body>
+</html>
