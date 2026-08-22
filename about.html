@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - PocketMate</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="page-about">
+    <header>
+      <div class="brand-container">
+        <div class="logo">
+          <img
+            src="assets/images/logo.png"
+            alt="PocketMate Logo"
+            onerror="
+              this.src = 'https://via.placeholder.com/45/6C4EF6/FFFFFF?text=PM'
+            "
+          />
+          <div class="logo-text"><h2>PocketMate</h2></div>
+        </div>
+        <label
+          class="theme-switch mobile-theme-switch"
+          aria-label="Toggle Theme"
+          ><input type="checkbox" id="mobile-theme-toggle" /><span
+            class="slider"
+            ><i class="ph ph-moon"></i><i class="ph ph-sun"></i></span
+        ></label>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html">Home</a
+        ><a href="about.html" class="active">About Us</a
+        ><a href="contact.html">Contact Us</a>
+      </nav>
+      <div class="desktop-buttons">
+        <a href="signin.html" class="signin">Sign In</a
+        ><a href="signup.html" class="signup">Sign Up</a
+        ><label
+          class="theme-switch desktop-theme-switch"
+          aria-label="Toggle Theme"
+          ><input type="checkbox" id="desktop-theme-toggle" /><span
+            class="slider"
+            ><i class="ph ph-moon"></i><i class="ph ph-sun"></i></span
+        ></label>
+      </div>
+    </header>
+    <nav class="bottom-nav">
+      <a href="index.html"
+        ><span class="icon"><i class="ph ph-house"></i></span
+        ><span>Home</span></a
+      ><a href="about.html" class="active"
+        ><span class="icon"><i class="ph ph-info"></i></span
+        ><span>About</span></a
+      ><a href="contact.html"
+        ><span class="icon"><i class="ph ph-phone"></i></span
+        ><span>Contact</span></a
+      ><a href="signin.html"
+        ><span class="icon"><i class="ph ph-user"></i></span
+        ><span>Sign In</span></a
+      ><a href="signup.html"
+        ><span class="icon"><i class="ph ph-user-plus"></i></span
+        ><span>Sign Up</span></a
+      >
+    </nav>
+    <main class="about-page">
+      <section class="about-hero">
+        <div class="hero-content">
+          <span class="tagline"
+            ><i class="ph ph-users"></i> ABOUT POCKETMATE</span
+          >
+          <h1>Smarter Spending.<br /><span>Better Tomorrow.</span></h1>
+          <p>
+            PocketMate is a student-built personal finance platform that helps
+            you track, analyze, and manage your money effortlessly.
+          </p>
+          <div class="hero-buttons">
+            <a href="signin.html" class="btn"
+              >Explore Dashboard <i class="ph ph-arrow-right"></i></a
+            ><a href="#team" class="btn-soft">Meet Our Team</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="PocketMate finance illustration">
+          <div class="coin coin-one">₹</div>
+          <div class="coin coin-two">₹</div>
+          <div class="coin coin-three">₹</div>
+          <div class="wallet"><div class="wallet-button"></div></div>
+          <div class="spending-card">
+            <h3>Spending Overview</h3>
+            <div class="spending-row">
+              <div class="donut"></div>
+              <div class="legend">
+                <span>Food 35%</span><span>Transport 18%</span
+                ><span>Education 20%</span>
+              </div>
+            </div>
+          </div>
+          <div class="action-card">
+            <span><i class="ph ph-wallet"></i> Track</span
+            ><span><i class="ph ph-chart-pie-slice"></i> Analyze</span
+            ><span><i class="ph ph-calendar-check"></i> Plan</span
+            ><span><i class="ph ph-piggy-bank"></i> Save</span>
+          </div>
+        </div>
+      </section>
+      <section class="info-grid">
+        <article class="info-card">
+          <div class="info-icon"><i class="ph ph-book-open-text"></i></div>
+          <div>
+            <h2>Our Story</h2>
+            <p>
+              PocketMate was born from a simple idea: financial management
+              should be easy, visual, and stress-free. As students, we saw that
+              tracking expenses and planning budgets did not need to be
+              complicated.
+            </p>
+            <p>
+              We created PocketMate to help people take control of their money
+              and build better habits for the future.
+            </p>
+          </div>
+        </article>
+        <article class="info-card">
+          <div class="info-icon pink"><i class="ph ph-target"></i></div>
+          <div>
+            <h2>Our Mission</h2>
+            <p>
+              To make financial management simple, visual, and accessible,
+              especially for students and young users.
+            </p>
+            <p>
+              We aim to encourage smart spending, mindful saving, and a stronger
+              financial future for everyone.
+            </p>
+          </div>
+        </article>
+      </section>
+      <section class="team-tech">
+        <section id="team">
+          <div class="section-title">
+            <span class="section-title-icon"><i class="ph ph-users"></i></span>
+            <h2>Meet Our Team</h2>
+          </div>
+          <div class="team-grid">
+            <article class="team-card">
+              <span class="lead-badge"
+                ><i class="ph ph-crown"></i> Team Lead</span
+              >
+              <div class="member-avatar">A</div>
+              <h3>Abhinav</h3>
+              <span class="role">Team Lead</span>
+              <p>
+                Leads the project, manages planning, and ensures smooth
+                execution.
+              </p>
+              <div class="social-links">
+                <a href="#" aria-label="GitHub"
+                  ><i class="ph ph-github-logo"></i></a
+                ><a href="#" aria-label="LinkedIn"
+                  ><i class="ph ph-linkedin-logo"></i></a
+                ><a href="#" aria-label="Email"
+                  ><i class="ph ph-envelope-simple"></i
+                ></a>
+              </div>
+            </article>
+            <article class="team-card">
+              <div class="member-avatar pink">S</div>
+              <h3>Suhani</h3>
+              <span class="role">UI/UX Designer</span>
+              <p>
+                Creates intuitive and beautiful designs for a seamless
+                experience.
+              </p>
+              <div class="social-links">
+                <a href="#" aria-label="GitHub"
+                  ><i class="ph ph-github-logo"></i></a
+                ><a href="#" aria-label="LinkedIn"
+                  ><i class="ph ph-linkedin-logo"></i></a
+                ><a href="#" aria-label="Email"
+                  ><i class="ph ph-envelope-simple"></i
+                ></a>
+              </div>
+            </article>
+            <article class="team-card">
+              <div class="member-avatar blue">T</div>
+              <h3>Tisha</h3>
+              <span class="role">Front-End Developer</span>
+              <p>
+                Builds responsive, interactive web interfaces using modern
+                tools.
+              </p>
+              <div class="social-links">
+                <a href="#" aria-label="GitHub"
+                  ><i class="ph ph-github-logo"></i></a
+                ><a href="#" aria-label="LinkedIn"
+                  ><i class="ph ph-linkedin-logo"></i></a
+                ><a href="#" aria-label="Email"
+                  ><i class="ph ph-envelope-simple"></i
+                ></a>
+              </div>
+            </article>
+            <article class="team-card">
+              <div class="member-avatar orange">C</div>
+              <h3>Charu</h3>
+              <span class="role">Content & Research</span>
+              <p>
+                Researches, documents, and brings creative insights to the
+                project.
+              </p>
+              <div class="social-links">
+                <a href="#" aria-label="GitHub"
+                  ><i class="ph ph-github-logo"></i></a
+                ><a href="#" aria-label="LinkedIn"
+                  ><i class="ph ph-linkedin-logo"></i></a
+                ><a href="#" aria-label="Email"
+                  ><i class="ph ph-envelope-simple"></i
+                ></a>
+              </div>
+            </article>
+          </div>
+        </section>
+        <section>
+          <div class="section-title">
+            <span class="section-title-icon"><i class="ph ph-code"></i></span>
+            <h2>Tech Stack</h2>
+          </div>
+          <div class="tech-list">
+            <div class="tech-item">
+              <span class="tech-logo orange">5</span>
+              <div>
+                <strong>HTML5</strong><small>Structure & Content</small>
+              </div>
+            </div>
+            <div class="tech-item">
+              <span class="tech-logo blue">3</span>
+              <div>
+                <strong>CSS3</strong><small>Styling & Responsive Design</small>
+              </div>
+            </div>
+            <div class="tech-item">
+              <span class="tech-logo yellow">JS</span>
+              <div>
+                <strong>JavaScript</strong><small>Interactivity & Logic</small>
+              </div>
+            </div>
+            <div class="tech-item">
+              <span class="tech-logo cyan"
+                ><i class="ph ph-chart-pie-slice"></i
+              ></span>
+              <div>
+                <strong>Chart.js</strong><small>Data Visualization</small>
+              </div>
+            </div>
+            <div class="tech-item">
+              <span class="tech-logo"><i class="ph ph-database"></i></span>
+              <div>
+                <strong>LocalStorage</strong><small>Data Persistence</small>
+              </div>
+            </div>
+            <div class="tech-item">
+              <span class="tech-logo blue"><i class="ph ph-code"></i></span>
+              <div>
+                <strong>VS Code</strong><small>Development Environment</small>
+              </div>
+            </div>
+            <div class="tech-item">
+              <span class="tech-logo dark"
+                ><i class="ph ph-github-logo"></i
+              ></span>
+              <div><strong>GitHub</strong><small>Version Control</small></div>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section class="cta">
+        <span class="cta-icon">🚀</span>
+        <div class="cta-content">
+          <h2>Ready to take control of your finances?</h2>
+          <p>Join PocketMate and make smarter money decisions today.</p>
+        </div>
+        <a href="signup.html" class="btn"
+          >Get Started <i class="ph ph-arrow-right"></i
+        ></a>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <div class="footer-about">
+          <h2>PocketMate</h2>
+          <p>
+            Helping students manage expenses, budgets and shared spending with
+            ease.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="signin.html">Sign In</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <p>Email : support@studenttracker.com</p>
+          <p>Phone : +91 98149 XXXXX</p>
+          <p>Location : Punjab, India</p>
+        </div>
+      </div>
+      <hr />
+      <p class="copyright">© 2026 PocketMate. All Rights Reserved.</p>
+    </footer>
+    <script>
+      const d = document.getElementById("desktop-theme-toggle"),
+        m = document.getElementById("mobile-theme-toggle"),
+        h = document.documentElement,
+        s = localStorage.getItem("pocketmate-theme") === "dark";
+      h.dataset.theme = s ? "dark" : "light";
+      d.checked = s;
+      m.checked = s;
+      function theme(e) {
+        const x = e.target.checked;
+        h.dataset.theme = x ? "dark" : "light";
+        localStorage.setItem("pocketmate-theme", x ? "dark" : "light");
+        d.checked = x;
+        m.checked = x;
+      }
+      d.addEventListener("change", theme);
+      m.addEventListener("change", theme);
+      document
+        .querySelectorAll(".lead-badge,.role")
+        .forEach((element) => element.remove());
+      document
+        .querySelectorAll(".team-card p")
+        .forEach(
+          (element) =>
+            (element.textContent =
+              "Collaborates across planning, design, development, testing, and documentation."),
+        );
+      document.querySelectorAll(".tech-item").forEach((item) => {
+        const name = item.querySelector("strong")?.textContent.trim();
+        if (!["HTML5", "CSS3", "JavaScript"].includes(name)) item.remove();
+      });
+    </script>
+    <script>
+      document.querySelectorAll("a").forEach(function (link) {
+        if (link.textContent.trim() === "Home") link.href = "homepage.html";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>PocketMate - Settings</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="app-body page-settings">
+    <div class="app">
+      <aside class="sidebar">
+        <div class="logo">
+          <img
+            src="assets/images/logo.png"
+            alt="PocketMate Logo"
+            onerror="
+              this.src = 'https://via.placeholder.com/45/6C4EF6/FFFFFF?text=PM'
+            "
+          />
+          <h2>PocketMate</h2>
+        </div>
+        <nav class="navigation">
+          <a href="dashboard.html" class="nav-item"
+            ><span class="nav-icon"><i class="ph ph-squares-four"></i></span
+            ><span>Dashboard</span></a
+          ><a href="expensemanager.html" class="nav-item"
+            ><span class="nav-icon"><i class="ph ph-wallet"></i></span
+            ><span>Expense Manager</span></a
+          ><a href="reports.html" class="nav-item"
+            ><span class="nav-icon"><i class="ph ph-chart-pie-slice"></i></span
+            ><span>Reports</span></a
+          ><a href="settings.html" class="nav-item active"
+            ><span class="nav-icon"><i class="ph ph-gear"></i></span
+            ><span>Settings</span></a
+          ><a href="homepage.html" class="nav-item logout"
+            ><span class="nav-icon"><i class="ph ph-sign-out"></i></span
+            ><span>Logout</span></a
+          >
+        </nav>
+      </aside>
+      <main class="main-content settings-page">
+        <section class="settings-heading">
+          <div>
+            <p class="eyebrow-app">ACCOUNT & PREFERENCES</p>
+            <h1>Settings</h1>
+            <p>Make PocketMate feel like yours.</p>
+          </div>
+          <div class="settings-profile">
+            <span class="bitmoji-avatar">🧑🏻‍🎓</span
+            ><span
+              ><strong id="headingName">Test Student</strong
+              ><small>Personal account</small></span
+            >
+          </div>
+        </section>
+        <section class="profile-panel">
+          <div class="panel-header">
+            <div>
+              <h2>Profile Information</h2>
+              <small class="panel-subtitle"
+                >View and update your PocketMate profile.</small
+              >
+            </div>
+            <div class="profile-dropdown" id="profileDropdown">
+              <span class="profile-dropdown-toggle"
+                ><i class="ph ph-user-circle"></i
+              ></span>
+              <div class="profile-dropdown-menu">
+                <a href="#" class="profile-dropdown-item"
+                  ><i class="ph ph-user"></i><span>View Profile</span></a
+                ><a href="#" class="profile-dropdown-item"
+                  ><i class="ph ph-pencil-simple"></i
+                  ><span>Edit Profile</span></a
+                ><a href="#" class="profile-dropdown-item"
+                  ><i class="ph ph-gear"></i><span>Account Settings</span></a
+                ><a href="#" class="profile-dropdown-item"
+                  ><i class="ph ph-sign-out"></i><span>Log Out</span></a
+                >
+              </div>
+            </div>
+          </div>
+          <form id="profileForm" class="profile-grid">
+            <label class="field"
+              >Full name<input
+                id="profileName"
+                value="Test Student"
+                required /></label
+            ><label class="field"
+              >Email address<input
+                id="profileEmail"
+                type="email"
+                value="test@student.com"
+                required /></label
+            ><label class="field"
+              >Username<input
+                id="profileUsername"
+                value="teststudent"
+                readonly /></label
+            ><label class="field"
+              >Account type<select id="profileType">
+                <option>Personal account</option>
+                <option>Student account</option>
+              </select></label
+            ><label class="field full"
+              >Member since<input value="August 2024" readonly
+            /></label>
+            <div class="action-row field full">
+              <button class="btn-primary" type="submit">Save Profile</button>
+              <p id="profileStatus" class="status-message"></p>
+            </div>
+          </form>
+        </section>
+        <section class="settings-layout">
+          <div class="settings-column">
+            <div class="settings-group">
+              <div class="settings-group-label">Appearance</div>
+              <div class="settings-tile">
+                <div class="settings-icon purple-icon">
+                  <i class="ph ph-sun-dim"></i>
+                </div>
+                <div class="settings-copy">
+                  <strong>Appearance</strong
+                  ><small>Use light or dark mode across PocketMate</small>
+                </div>
+                <label class="master-theme-switch"
+                  ><input id="masterThemeToggle" type="checkbox" /><span></span
+                ></label>
+              </div>
+              <div class="settings-tile">
+                <div class="settings-icon blue-icon">
+                  <i class="ph ph-text-aa"></i>
+                </div>
+                <div class="settings-copy">
+                  <strong>Text size</strong
+                  ><small>Applied across the PocketMate website</small>
+                </div>
+                <select class="settings-select" id="textSize">
+                  <option value="comfortable">Comfortable</option>
+                  <option value="large">Large</option>
+                  <option value="compact">Compact</option>
+                </select>
+              </div>
+            </div>
+            <div class="settings-group">
+              <div class="settings-group-label">Money</div>
+              <div class="settings-tile">
+                <div class="settings-icon green-icon">
+                  <i class="ph ph-currency-circle-dollar"></i>
+                </div>
+                <div class="settings-copy">
+                  <strong>Currency</strong
+                  ><small>Used throughout your account</small>
+                </div>
+                <select class="settings-select" id="currencySelect">
+                  <option value="INR">₹ INR — Indian Rupee</option>
+                  <option value="USD">$ USD — US Dollar</option>
+                  <option value="EUR">€ EUR — Euro</option>
+                  <option value="GBP">£ GBP — British Pound</option>
+                </select>
+              </div>
+              <div class="settings-tile">
+                <div class="settings-icon orange-icon">
+                  <i class="ph ph-calendar-blank"></i>
+                </div>
+                <div class="settings-copy">
+                  <strong>Budget cycle</strong
+                  ><small>Choose when your budget resets</small>
+                </div>
+                <select class="settings-select" id="budgetCycle">
+                  <option value="weekly">Weekly</option>
+                  <option value="monthly">Monthly — resets on the 1st</option>
+                  <option value="yearly">Yearly</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="settings-column">
+            <div class="settings-group">
+              <div class="settings-group-label">Support</div>
+              <button
+                class="settings-tile settings-button"
+                id="contactSettingsButton"
+                type="button"
+              >
+                <div class="settings-icon pink-icon">
+                  <i class="ph ph-chat-circle-dots"></i>
+                </div>
+                <div class="settings-copy">
+                  <strong>Contact us</strong
+                  ><small>Questions, feedback, or grievances</small>
+                </div>
+                <i class="ph ph-caret-right tile-arrow"></i></button
+              ><button
+                class="settings-tile settings-button"
+                id="helpButton"
+                type="button"
+              >
+                <div class="settings-icon blue-icon">
+                  <i class="ph ph-question"></i>
+                </div>
+                <div class="settings-copy">
+                  <strong>Help centre</strong
+                  ><small>Learn how to get more from PocketMate</small>
+                </div>
+                <i class="ph ph-caret-right tile-arrow"></i>
+              </button>
+            </div>
+            <div class="settings-group">
+              <div class="settings-group-label">Account</div>
+              <button
+                class="settings-tile settings-button danger-tile"
+                id="logoutButton"
+                type="button"
+              >
+                <div class="settings-icon red-icon">
+                  <i class="ph ph-sign-out"></i>
+                </div>
+                <div class="settings-copy">
+                  <strong>Log out</strong><small>Sign out of this device</small>
+                </div>
+                <i class="ph ph-caret-right tile-arrow"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+        <section class="data-panel">
+          <div class="panel-header">
+            <div>
+              <h2>Data & Export</h2>
+              <small class="panel-subtitle"
+                >Download a copy of your PocketMate information.</small
+              >
+            </div>
+            <span class="settings-icon green-icon"
+              ><i class="ph ph-download-simple"></i
+            ></span>
+          </div>
+          <div class="data-grid">
+            <div class="data-card">
+              <h3>Reports and transactions</h3>
+              <p>Export your sample financial activity as a CSV file.</p>
+              <button class="btn-primary" id="exportCsv" type="button">
+                Export CSV <i class="ph ph-file-csv"></i>
+              </button>
+            </div>
+            <div class="data-card">
+              <h3>Preferences backup</h3>
+              <p>Download your saved preferences as a JSON file.</p>
+              <button class="btn-soft" id="exportPreferences" type="button">
+                Export Preferences
+              </button>
+            </div>
+          </div>
+          <p id="dataStatus" class="status-message"></p>
+        </section>
+        <section class="danger-panel">
+          <div>
+            <h2>Danger Zone</h2>
+            <p>
+              These actions affect your local PocketMate data on this device.
+            </p>
+          </div>
+          <div class="danger-actions">
+            <button class="btn-danger" id="resetAccount" type="button">
+              Reset Account Data</button
+            ><button class="btn-danger" id="deleteAccount" type="button">
+              Delete Account
+            </button>
+          </div>
+          <p id="dangerStatus" class="status-message"></p>
+        </section>
+        <p class="settings-footnote">
+          <i class="ph ph-lock-key"></i
+          ><span
+            >Your preferences are saved on this device. PocketMate never sells
+            your personal financial data.</span
+          >
+        </p>
+      </main>
+    </div>
+    <div class="contact-dock-backdrop" id="contactBackdrop"></div>
+    <aside class="contact-dock" id="contactDock" aria-hidden="true">
+      <div class="dock-topbar">
+        <span class="dock-handle"></span
+        ><button id="closeContactDock" aria-label="Close contact window">
+          <i class="ph ph-x"></i>
+        </button>
+      </div>
+      <div class="contact-dock-scroll">
+        <div class="contact-hero">
+          <span class="contact-hero-icon"
+            ><i class="ph ph-chat-circle-dots"></i
+          ></span>
+          <p class="eyebrow-app">WE'RE HERE FOR YOU</p>
+          <h2>How can we help?</h2>
+          <p>
+            Send us a note and our small, human team will get back to you within
+            one business day.
+          </p>
+        </div>
+        <div class="contact-channel-list">
+          <div class="contact-channel">
+            <span class="contact-channel-icon"
+              ><i class="ph ph-envelope-simple"></i></span
+            ><span
+              ><strong>Email us</strong
+              ><small>hello@pocketmate.app</small></span
+            ><i class="ph ph-arrow-up-right"></i>
+          </div>
+          <div class="contact-channel">
+            <span class="contact-channel-icon"
+              ><i class="ph ph-chat-teardrop-text"></i></span
+            ><span
+              ><strong>Live chat</strong
+              ><small>Available Mon–Fri, 9am–6pm</small></span
+            ><i class="ph ph-arrow-up-right"></i>
+          </div>
+        </div>
+        <form id="contactForm" class="contact-form">
+          <label
+            >Your name<input
+              type="text"
+              id="contactName"
+              value="Test Student"
+              required /></label
+          ><label
+            >Email address<input
+              type="email"
+              id="contactEmail"
+              placeholder="you@example.com"
+              required /></label
+          ><label
+            >What can we help with?<select id="contactTopic">
+              <option>General question</option>
+              <option>Feedback</option>
+              <option>Grievance</option>
+              <option>Bug report</option>
+              <option>Account help</option>
+            </select></label
+          ><label
+            >Your message<textarea
+              id="contactMessage"
+              rows="5"
+              placeholder="Tell us a little more..."
+              required
+            ></textarea></label
+          ><button class="btn-primary" type="submit">
+            Send message <i class="ph ph-paper-plane-tilt"></i>
+          </button>
+          <p id="contactStatus" class="contact-status"></p>
+        </form>
+      </div>
+    </aside>
+    <script>
+      (function () {
+        const root = document.documentElement,
+          $ = (id) => document.getElementById(id);
+        function setTheme(value) {
+          const theme = value === "dark" ? "dark" : "light";
+          root.dataset.theme = theme;
+          localStorage.setItem("pocketmate-theme", theme);
+          $("masterThemeToggle").checked = theme === "dark";
+          window.dispatchEvent(
+            new CustomEvent("pocketmate-theme-change", { detail: theme }),
+          );
+        }
+        const savedTheme = localStorage.getItem("pocketmate-theme");
+        setTheme(
+          savedTheme === "dark" || savedTheme === "light"
+            ? savedTheme
+            : "light",
+        );
+        window.addEventListener("storage", (e) => {
+          if (e.key === "pocketmate-theme") {
+            root.dataset.theme = e.newValue === "dark" ? "dark" : "light";
+            $("masterThemeToggle").checked = e.newValue === "dark";
+          }
+        });
+        $("masterThemeToggle").addEventListener("change", (e) =>
+          setTheme(e.target.checked ? "dark" : "light"),
+        );
+        const savedSize =
+          localStorage.getItem("pocketmate-text-size") || "comfortable";
+        root.dataset.textSize = savedSize;
+        $("textSize").value = savedSize;
+        $("textSize").addEventListener("change", (e) => {
+          root.dataset.textSize = e.target.value;
+          localStorage.setItem("pocketmate-text-size", e.target.value);
+        });
+        const savedCurrency =
+          localStorage.getItem("pocketmate-currency") || "INR";
+        $("currencySelect").value = savedCurrency;
+        $("currencySelect").addEventListener("change", (e) =>
+          localStorage.setItem("pocketmate-currency", e.target.value),
+        );
+        const savedCycle =
+          localStorage.getItem("pocketmate-budget-cycle") || "monthly";
+        $("budgetCycle").value = savedCycle;
+        $("budgetCycle").addEventListener("change", (e) =>
+          localStorage.setItem("pocketmate-budget-cycle", e.target.value),
+        );
+        $("profileForm").addEventListener("submit", (e) => {
+          e.preventDefault();
+          const name = $("profileName").value.trim();
+          localStorage.setItem(
+            "pocketmate-profile",
+            JSON.stringify({
+              name,
+              email: $("profileEmail").value.trim(),
+              username: $("profileUsername").value,
+              accountType: $("profileType").value,
+            }),
+          );
+          $("headingName").textContent = name || "Test Student";
+          $("profileStatus").textContent = "Profile details saved.";
+        });
+        const savedProfile = JSON.parse(
+          localStorage.getItem("pocketmate-profile") || "null",
+        );
+        if (savedProfile) {
+          $("profileName").value = savedProfile.name || "Test Student";
+          $("profileEmail").value = savedProfile.email || "test@student.com";
+          $("profileType").value =
+            savedProfile.accountType || "Personal account";
+          $("headingName").textContent = savedProfile.name || "Test Student";
+        }
+        function download(content, name, type) {
+          const blob = new Blob([content], { type });
+          const link = document.createElement("a");
+          link.href = URL.createObjectURL(blob);
+          link.download = name;
+          link.click();
+          URL.revokeObjectURL(link.href);
+        }
+        $("exportCsv").addEventListener("click", () => {
+          const csv =
+            "Date,Category,Description,Type,Amount\n2 Aug 2024,Food,Pizza,Expense,350\n1 Aug 2024,Education,Books,Expense,900\n1 Aug 2024,Transport,Bus Pass,Expense,450\n31 Jul 2024,Food,Coffee,Expense,120\n31 Jul 2024,Income,Salary,Income,6000";
+          download(csv, "pocketmate-data.csv", "text/csv");
+          $("dataStatus").textContent = "CSV export downloaded.";
+        });
+        $("exportPreferences").addEventListener("click", () => {
+          download(
+            JSON.stringify(
+              {
+                theme: root.dataset.theme,
+                textSize: root.dataset.textSize,
+                currency: $("currencySelect").value,
+                budgetCycle: $("budgetCycle").value,
+                profile: savedProfile || {
+                  name: "Test Student",
+                  email: "test@student.com",
+                },
+              },
+              null,
+              2,
+            ),
+            "pocketmate-preferences.json",
+            "application/json",
+          );
+          $("dataStatus").textContent = "Preferences backup downloaded.";
+        });
+        $("resetAccount").addEventListener("click", () => {
+          if (confirm("Reset PocketMate account data on this device?")) {
+            [
+              "pocketmate-profile",
+              "pocketmate-currency",
+              "pocketmate-budget-cycle",
+              "pocketmate-text-size",
+            ].forEach((key) => localStorage.removeItem(key));
+            $("dangerStatus").textContent =
+              "Account data reset. Theme preference was preserved.";
+            location.reload();
+          }
+        });
+        $("deleteAccount").addEventListener("click", () => {
+          if (
+            confirm("Delete this PocketMate account and all saved local data?")
+          ) {
+            localStorage.clear();
+            location.href = "homepage.html";
+          }
+        });
+        const backdrop = $("contactBackdrop"),
+          dock = $("contactDock");
+        function openDock() {
+          backdrop.classList.add("open");
+          dock.classList.add("open");
+          dock.setAttribute("aria-hidden", "false");
+        }
+        function closeDock() {
+          backdrop.classList.remove("open");
+          dock.classList.remove("open");
+          dock.setAttribute("aria-hidden", "true");
+        }
+        $("contactSettingsButton").addEventListener("click", openDock);
+        $("helpButton").addEventListener("click", openDock);
+        $("closeContactDock").addEventListener("click", closeDock);
+        backdrop.addEventListener("click", closeDock);
+        $("contactForm").addEventListener("submit", (e) => {
+          e.preventDefault();
+          $("contactStatus").textContent =
+            "Thanks — your message is ready for our support team.";
+          e.target.reset();
+        });
+        $("logoutButton").addEventListener("click", () => {
+          if (confirm("Log out of PocketMate?"))
+            location.href = "homepage.html";
+        });
+        const profileDropdown = $("profileDropdown");
+        const profileToggle = profileDropdown.querySelector(
+          ".profile-dropdown-toggle",
+        );
+        profileToggle.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          profileDropdown.classList.toggle("open");
+        });
+        document.addEventListener("click", (e) => {
+          if (!profileDropdown.contains(e.target)) {
+            profileDropdown.classList.remove("open");
+          }
+        });
+        profileDropdown
+          .querySelectorAll(".profile-dropdown-item")
+          .forEach((item) => {
+            item.addEventListener("click", (e) => {
+              e.preventDefault();
+              profileDropdown.classList.remove("open");
+            });
+          });
+      })();
+    </script>
+  </body>
+</html>
