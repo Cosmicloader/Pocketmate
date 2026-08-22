@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PocketMate Dashboard</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="page-dashboard">
+    <div class="app">
+      <aside class="sidebar">
+        <div class="logo">
+          <img
+            src="assets/images/logo.png"
+            alt="PocketMate Logo"
+            onerror="
+              this.src = 'https://via.placeholder.com/45/6C4EF6/FFFFFF?text=PM'
+            "
+          />
+          <h2>PocketMate</h2>
+        </div>
+        <nav class="navigation">
+          <a class="nav-item active" href="dashboard.html"
+            ><span class="nav-icon"><i class="ph ph-squares-four"></i></span
+            ><span>Dashboard</span></a
+          ><a class="nav-item" href="expensemanager.html"
+            ><span class="nav-icon"><i class="ph ph-wallet"></i></span
+            ><span>Expense Manager</span></a
+          ><a class="nav-item" href="reports.html"
+            ><span class="nav-icon"><i class="ph ph-chart-pie-slice"></i></span
+            ><span>Reports</span></a
+          ><a class="nav-item" href="settings.html"
+            ><span class="nav-icon"><i class="ph ph-gear"></i></span
+            ><span>Settings</span></a
+          ><a class="nav-item logout" href="homepage.html"
+            ><span class="nav-icon"><i class="ph ph-sign-out"></i></span
+            ><span>Logout</span></a
+          >
+        </nav>
+      </aside>
+      <main class="main">
+        <section class="welcome">
+          <div>
+            <h1>Hello, Test Student 👋</h1>
+            <p>Track your expenses and achieve your financial goals.</p>
+          </div>
+          <div class="health">
+            <div class="health-top">
+              <div class="health-title">
+                <i class="ph ph-heartbeat"></i> Financial Health
+              </div>
+              <div class="score">
+                <strong>87</strong><span>/100</span
+                ><b class="optimal">Optimal</b>
+              </div>
+            </div>
+            <div class="health-track"><div class="health-fill"></div></div>
+          </div>
+        </section>
+        <section class="summary">
+          <div class="summary-card income">
+            <div class="card-icon">💼</div>
+            <div>
+              <p>Total Income</p>
+              <h2>₹25,000</h2>
+              <small class="up">▲ 12% vs last month</small>
+            </div>
+          </div>
+          <div class="summary-card expense">
+            <div class="card-icon">🛍️</div>
+            <div>
+              <p>Total Expenses</p>
+              <h2>₹16,000</h2>
+              <small class="up">▲ 8% vs last month</small>
+            </div>
+          </div>
+          <div class="summary-card saving">
+            <div class="card-icon">⏱️</div>
+            <div>
+              <p>Total Savings</p>
+              <h2>₹9,000</h2>
+              <small class="up">▲ 15% vs last month</small>
+            </div>
+          </div>
+          <div class="summary-card left">
+            <div class="card-icon">💰</div>
+            <div>
+              <p>Budget Left</p>
+              <h2>₹4,000</h2>
+              <small class="down">▼ 20% vs last month</small>
+            </div>
+          </div>
+        </section>
+        <section class="row row-primary">
+          <div class="panel spending">
+            <div class="panel-head">
+              <div>
+                <h3>Spending Overview</h3>
+                <small class="sub">Your monthly expense mix</small>
+              </div>
+              <b style="color: var(--primary)"
+                >₹16,000 <small style="color: var(--muted)">Total</small></b
+              >
+            </div>
+            <div class="spending-body">
+              <div class="donut">
+                <div class="donut-center">
+                  <strong>₹16,000</strong><span>Total</span>
+                </div>
+              </div>
+              <div class="legend">
+                <div class="legend-line">
+                  <i class="dot food"></i><span>Food</span
+                  ><b>35%<em>₹5,600</em></b>
+                </div>
+                <div class="legend-line">
+                  <i class="dot education"></i><span>Education</span
+                  ><b>20%<em>₹3,200</em></b>
+                </div>
+                <div class="legend-line">
+                  <i class="dot transport"></i><span>Transport</span
+                  ><b>18%<em>₹2,880</em></b>
+                </div>
+                <div class="legend-line">
+                  <i class="dot entertainment"></i><span>Entertainment</span
+                  ><b>12%<em>₹1,920</em></b>
+                </div>
+                <div class="legend-line">
+                  <i class="dot others"></i><span>Others</span
+                  ><b>15%<em>₹2,400</em></b>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel budget">
+            <div class="panel-head">
+              <div>
+                <h3>Budget Progress</h3>
+                <small class="sub">Monthly spending limit</small>
+              </div>
+            </div>
+            <div class="budget-value">
+              <span>Monthly Budget</span><strong>₹20,000</strong>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" style="width: 80%"></div>
+            </div>
+            <div class="budget-info">
+              <span>Spent <strong>₹16,000</strong></span
+              ><span>Left <strong>₹4,000</strong></span
+              ><b>80%</b>
+            </div>
+            <div class="status">✓ You're within your monthly budget</div>
+            <a class="outline" href="expensemanager.html#monthly-budget"
+              >View Details</a
+            >
+          </div>
+          <div class="panel goals">
+            <div class="panel-head">
+              <div>
+                <h3>Goals</h3>
+                <small class="sub">Keep your plans moving</small>
+              </div>
+              <a href="goals.html">View All</a>
+            </div>
+            <div class="goal">
+              <div class="goal-top">
+                <div class="goal-title">💻 <strong>MacBook</strong></div>
+                <b class="percent">80%</b>
+              </div>
+              <div class="amount">₹80,000 <span>of ₹1,00,000</span></div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width: 80%"></div>
+              </div>
+              <small class="hint"
+                >💡 Best time to buy: End of Season Sale</small
+              >
+            </div>
+            <div class="goal">
+              <div class="goal-top">
+                <div class="goal-title">🩹 <strong>Emergency Fund</strong></div>
+                <b class="percent">60%</b>
+              </div>
+              <div class="amount">₹18,000 <span>of ₹30,000</span></div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width: 60%"></div>
+              </div>
+            </div>
+            <div class="goal">
+              <div class="goal-top">
+                <div class="goal-title">✈ <strong>Goa Trip</strong></div>
+                <b class="percent">40%</b>
+              </div>
+              <div class="amount">₹6,000 <span>of ₹15,000</span></div>
+              <div class="progress-track">
+                <div class="progress-fill" style="width: 40%"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="row row-secondary">
+          <div class="panel transactions">
+            <div class="panel-head">
+              <div>
+                <h3>Recent Transactions</h3>
+                <small class="sub"
+                  >Hover a row for bank and account details</small
+                >
+              </div>
+              <a href="expensemanager.html#transaction-history">View All</a>
+            </div>
+            <div class="transaction">
+              <span class="transaction-icon pink-bg">🍕</span>
+              <div class="transaction-info">
+                <div class="transaction-head">
+                  <strong>Pizza</strong><small>10 May</small>
+                </div>
+                <div class="details">
+                  <span class="pill">HDFC •••• 1234</span
+                  ><span class="pill tag">Personal</span>
+                </div>
+              </div>
+              <div class="transaction-meta">
+                <b class="negative">-₹250</b
+                ><small class="negative impact">-1 Score</small>
+              </div>
+            </div>
+            <div class="transaction">
+              <span class="transaction-icon blue-bg">📚</span>
+              <div class="transaction-info">
+                <div class="transaction-head">
+                  <strong>Books</strong><small>10 May</small>
+                </div>
+                <div class="details">
+                  <span class="pill">SBI •••• 9876</span
+                  ><span class="pill tag">Education</span>
+                </div>
+              </div>
+              <div class="transaction-meta">
+                <b class="negative">-₹500</b
+                ><small class="positive impact">+2 Score</small>
+              </div>
+            </div>
+            <div class="transaction">
+              <span class="transaction-icon purple-bg">🚌</span>
+              <div class="transaction-info">
+                <div class="transaction-head">
+                  <strong>Bus Pass</strong><small>09 May</small>
+                </div>
+                <div class="details">
+                  <span class="pill">Wallet</span
+                  ><span class="pill tag">Personal</span>
+                </div>
+              </div>
+              <div class="transaction-meta">
+                <b class="negative">-₹120</b
+                ><small class="impact">0 Score</small>
+              </div>
+            </div>
+            <div class="transaction">
+              <span class="transaction-icon orange-bg">☕</span>
+              <div class="transaction-info">
+                <div class="transaction-head">
+                  <strong>Coffee</strong><small>08 May</small>
+                </div>
+                <div class="details">
+                  <span class="pill">HDFC •••• 1234</span
+                  ><span class="pill tag">Personal</span>
+                </div>
+              </div>
+              <div class="transaction-meta">
+                <b class="negative">-₹200</b
+                ><small class="negative impact">-1 Score</small>
+              </div>
+            </div>
+            <div class="transaction">
+              <span class="transaction-icon green-bg">💵</span>
+              <div class="transaction-info">
+                <div class="transaction-head">
+                  <strong>Salary</strong><small>07 May</small>
+                </div>
+                <div class="details">
+                  <span class="pill">SBI •••• 9876</span
+                  ><span class="pill tag">Business</span>
+                </div>
+              </div>
+              <div class="transaction-meta">
+                <b class="positive">+₹25,000</b
+                ><small class="positive impact">+5 Score</small>
+              </div>
+            </div>
+          </div>
+          <div class="bills-pools">
+            <div class="panel">
+              <div class="panel-head">
+                <div>
+                  <h3>Upcoming Bills</h3>
+                  <small class="sub">Never miss a payment</small>
+                </div>
+                <a href="expensemanager.html#upcoming-bills">View All</a>
+              </div>
+              <div class="bill-list">
+                <div class="bill">
+                  <span class="bill-icon pink-bg">⚡</span
+                  ><strong>Electricity Bill</strong
+                  ><small class="due">due in 3 days</small><b>₹800</b>
+                </div>
+                <div class="bill">
+                  <span class="bill-icon purple-bg">▣</span
+                  ><strong>Netflix</strong
+                  ><small class="auto">autopay on 25th</small><b>₹199</b>
+                </div>
+                <div class="bill">
+                  <span class="bill-icon green-bg">♫</span
+                  ><strong>Spotify</strong
+                  ><small class="due">due tomorrow</small><b>₹119</b>
+                </div>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="panel-head">
+                <div>
+                  <h3>Pools</h3>
+                  <small class="sub">Shared saving targets</small>
+                </div>
+                <a href="expensemanager.html#pools">View All</a>
+              </div>
+              <div class="pool-list">
+                <div class="pool">
+                  <div class="pool-top">
+                    <div class="pool-title">⌂ <strong>Room Rent</strong></div>
+                    <b class="percent">60%</b>
+                  </div>
+                  <div class="amount">₹12,000 <span>of ₹20,000</span></div>
+                  <div class="progress-track">
+                    <div class="progress-fill" style="width: 60%"></div>
+                  </div>
+                </div>
+                <div class="pool">
+                  <div class="pool-top">
+                    <div class="pool-title">✈ <strong>Goa Trip</strong></div>
+                    <b class="percent">56%</b>
+                  </div>
+                  <div class="amount">₹8,500 <span>of ₹15,000</span></div>
+                  <div class="progress-track">
+                    <div class="progress-fill" style="width: 56%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="friends-categories">
+          <div class="panel">
+            <div class="panel-head"><h3>Friends Summary</h3></div>
+            <div class="friends">
+              <div class="friend rahul">
+                <div class="avatar">👨🏻</div>
+                <strong>Rahul</strong><small>Owes you</small><b>₹250</b
+                ><a class="outline" href="expensemanager.html?friend=rahul"
+                  >View Details</a
+                >
+              </div>
+              <div class="friend aman">
+                <div class="avatar">👨🏻</div>
+                <strong>Aman</strong><small>You owe</small><b>₹120</b
+                ><a class="outline" href="expensemanager.html?friend=aman"
+                  >View Details</a
+                >
+              </div>
+              <div class="friend priya">
+                <div class="avatar">👩🏻</div>
+                <strong>Priya</strong><small>Settled up</small><b>₹0</b
+                ><a class="outline" href="expensemanager.html?friend=priya"
+                  >View Details</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="panel categories-panel">
+            <div class="panel-head">
+              <h3>Explore Categories</h3>
+              <a href="expensemanager.html#categories">View All</a>
+            </div>
+            <div class="categories">
+              <div class="category">
+                <div class="category-icon food-t">🛍</div>
+                <strong>Food</strong><b>₹5,600</b>
+              </div>
+              <div class="category">
+                <div class="category-icon education-t">🎓</div>
+                <strong>Education</strong><b>₹3,200</b>
+              </div>
+              <div class="category">
+                <div class="category-icon transport-t">🚗</div>
+                <strong>Transport</strong><b>₹2,880</b>
+              </div>
+              <div class="category">
+                <div class="category-icon others-t">🚌</div>
+                <strong>Others</strong><b>₹2,400</b>
+              </div>
+              <div class="category">
+                <div class="category-icon entertainment-t">🎬</div>
+                <strong>Entertainment</strong><b>₹1,920</b>
+              </div>
+              <div class="category">
+                <div class="category-icon health-t">❤</div>
+                <strong>Health</strong><b>₹1,120</b>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script>
+      (function () {
+        const root = document.documentElement;
+        function theme(v) {
+          root.dataset.theme = v === "dark" ? "dark" : "light";
+          localStorage.setItem("pocketmate-theme", root.dataset.theme);
+        }
+        const saved = localStorage.getItem("pocketmate-theme");
+        theme(saved === "dark" || saved === "light" ? saved : "light");
+        window.addEventListener("storage", (e) => {
+          if (e.key === "pocketmate-theme")
+            root.dataset.theme = e.newValue === "dark" ? "dark" : "light";
+        });
+        document.querySelectorAll(".transaction").forEach((row) =>
+          row.addEventListener("click", () => {
+            if (matchMedia("(hover:none)").matches)
+              row.classList.toggle("open");
+          }),
+        );
+      })();
+    </script>
+  </body>
+</html>

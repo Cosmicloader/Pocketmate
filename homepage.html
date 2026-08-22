@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Expense Tracker</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="page-homepage">
+    <header>
+      <div class="brand-container">
+        <div class="logo">
+          <img
+            src="assets/images/logo.png"
+            alt="Student Expense Tracker Logo"
+            onerror="
+              this.src = 'https://via.placeholder.com/45/6C4EF6/FFFFFF?text=PM'
+            "
+          />
+          <div class="logo-text"><h2>PocketMate</h2></div>
+        </div>
+        <label
+          class="theme-switch mobile-theme-switch"
+          aria-label="Toggle Theme"
+          ><input type="checkbox" id="mobile-theme-toggle" /><span
+            class="slider"
+            ><i class="ph ph-moon"></i><i class="ph ph-sun"></i></span
+        ></label>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html" class="active">Home</a
+        ><a href="about.html">About Us</a><a href="contact.html">Contact Us</a>
+      </nav>
+      <div class="desktop-buttons">
+        <a href="signin.html" class="signin">Sign In</a
+        ><a href="signup.html" class="signup">Sign Up</a
+        ><label
+          class="theme-switch desktop-theme-switch"
+          aria-label="Toggle Theme"
+          ><input type="checkbox" id="desktop-theme-toggle" /><span
+            class="slider"
+            ><i class="ph ph-moon"></i><i class="ph ph-sun"></i></span
+        ></label>
+      </div>
+    </header>
+    <nav class="bottom-nav">
+      <a href="index.html" class="active"
+        ><span class="icon"><i class="ph ph-house"></i></span
+        ><span>Home</span></a
+      ><a href="about.html"
+        ><span class="icon"><i class="ph ph-info"></i></span
+        ><span>About</span></a
+      ><a href="contact.html"
+        ><span class="icon"><i class="ph ph-phone"></i></span
+        ><span>Contact</span></a
+      ><a href="signin.html"
+        ><span class="icon"><i class="ph ph-user"></i></span
+        ><span>Sign In</span></a
+      ><a href="signup.html"
+        ><span class="icon"><i class="ph ph-user-plus"></i></span
+        ><span>Sign Up</span></a
+      >
+    </nav>
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <span class="tagline">SMART SPENDING FOR STUDENTS</span>
+          <h1>Track.<br />Manage.<br />Achieve More.</h1>
+          <p>
+            PocketMate helps you manage your daily income, expenses, monthly
+            budgets, and shared expenses with friends in one simple and
+            organized place.
+          </p>
+          <a href="signin.html" class="btn">Get Started</a>
+        </div>
+        <div class="hero-image">
+          <img
+            src="assets/images/hero.png"
+            alt="Student Expense Tracker"
+            onerror="
+              this.src =
+                'https://via.placeholder.com/500x400/ECE8FF/6C4EF6?text=Hero+Image'
+            "
+          />
+        </div>
+      </section>
+      <section class="features">
+        <h2>Why Choose PocketMate?</h2>
+        <p class="feature-text">
+          Everything you need to manage your finances as a student.
+        </p>
+        <div class="feature-container">
+          <article class="feature-card">
+            <div class="icon"><i class="ph ph-coins"></i></div>
+            <h3>Track Expenses</h3>
+            <p>Record your daily expenses and income in an organized manner.</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon"><i class="ph ph-chart-bar"></i></div>
+            <h3>Budget Planning</h3>
+            <p>Set your monthly budget and keep your spending under control.</p>
+          </article>
+          <article class="feature-card">
+            <div class="icon"><i class="ph ph-users"></i></div>
+            <h3>Split Expenses</h3>
+            <p>
+              Easily split food, travel, rent and other expenses with friends.
+            </p>
+          </article>
+          <article class="feature-card">
+            <div class="icon"><i class="ph ph-trend-up"></i></div>
+            <h3>Reports</h3>
+            <p>View spending reports to understand your financial habits.</p>
+          </article>
+        </div>
+      </section>
+      <section class="cta">
+        <div class="cta-content">
+          <h2>Take Control of Your Student Finances Today</h2>
+          <p>
+            Whether it's managing your monthly allowance, tracking expenses, or
+            splitting bills with friends, PocketMate helps you stay organized
+            and make smarter financial decisions.
+          </p>
+          <a href="signup.html" class="cta-btn">Create Free Account</a>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <div class="footer-about">
+          <h2>PocketMate</h2>
+          <p>
+            Helping students manage expenses, budgets and shared spending with
+            ease.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="signin.html">Sign In</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <p>Email : support@studenttracker.com</p>
+          <p>Phone : +91 98149 XXXXX</p>
+          <p>Location : Punjab, India</p>
+        </div>
+      </div>
+      <hr />
+      <p class="copyright">© 2026 PocketMate. All Rights Reserved.</p>
+    </footer>
+    <script>
+      const d = document.getElementById("desktop-theme-toggle"),
+        m = document.getElementById("mobile-theme-toggle"),
+        h = document.documentElement,
+        s = localStorage.getItem("pocketmate-theme") === "dark";
+      h.dataset.theme = s ? "dark" : "light";
+      d.checked = s;
+      m.checked = s;
+      function theme(e) {
+        const x = e.target.checked;
+        h.dataset.theme = x ? "dark" : "light";
+        localStorage.setItem("pocketmate-theme", x ? "dark" : "light");
+        d.checked = x;
+        m.checked = x;
+      }
+      d.addEventListener("change", theme);
+      m.addEventListener("change", theme);
+    </script>
+  </body>
+</html>

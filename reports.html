@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>PocketMate - Reports</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="app-body page-reports">
+    <div class="app">
+      <aside class="sidebar">
+        <div class="logo">
+          <img
+            src="assets/images/logo.png"
+            alt="PocketMate Logo"
+            onerror="
+              this.src = 'https://via.placeholder.com/45/6C4EF6/FFFFFF?text=PM'
+            "
+          />
+          <h2>PocketMate</h2>
+        </div>
+        <nav class="navigation">
+          <a href="dashboard.html" class="nav-item"
+            ><span class="nav-icon"><i class="ph ph-squares-four"></i></span
+            ><span>Dashboard</span></a
+          ><a href="expensemanager.html" class="nav-item"
+            ><span class="nav-icon"><i class="ph ph-wallet"></i></span
+            ><span>Expense Manager</span></a
+          ><a href="reports.html" class="nav-item active"
+            ><span class="nav-icon"><i class="ph ph-chart-pie-slice"></i></span
+            ><span>Reports</span></a
+          ><a href="settings.html" class="nav-item"
+            ><span class="nav-icon"><i class="ph ph-gear"></i></span
+            ><span>Settings</span></a
+          ><a href="homepage.html" class="nav-item logout"
+            ><span class="nav-icon"><i class="ph ph-sign-out"></i></span
+            ><span>Logout</span></a
+          >
+        </nav>
+      </aside>
+      <main class="main-content reports-enhanced">
+        <section class="page-intro">
+          <div>
+            <h1>Reports</h1>
+            <p>See patterns, momentum, and opportunities in your money.</p>
+          </div>
+          <select
+            class="time-filter"
+            id="report-period"
+            aria-label="Select report period"
+          >
+            <option value="monthly">Monthly Expenses</option>
+            <option value="weekly">Weekly Expenses</option>
+            <option value="yearly">Yearly Expenses</option>
+          </select>
+        </section>
+        <section class="summary-cards">
+          <div class="summary-card income">
+            <div class="card-icon">💼</div>
+            <div>
+              <p>Total Income</p>
+              <h2>₹25,000</h2>
+              <small class="increase">↗ 12% vs last month</small>
+            </div>
+          </div>
+          <div class="summary-card expense">
+            <div class="card-icon">🛍️</div>
+            <div>
+              <p>Total Expenses</p>
+              <h2>₹16,000</h2>
+              <small class="increase">↗ 8% vs last month</small>
+            </div>
+          </div>
+          <div class="summary-card savings">
+            <div class="card-icon">⏱️</div>
+            <div>
+              <p>Total Savings</p>
+              <h2>₹9,000</h2>
+              <small class="increase">↗ 15% vs last month</small>
+            </div>
+          </div>
+          <div class="summary-card budget">
+            <div class="card-icon">💰</div>
+            <div>
+              <p>Budget Left</p>
+              <h2>₹4,000</h2>
+              <small class="decrease">↘ 20% vs last month</small>
+            </div>
+          </div>
+        </section>
+        <section class="panel score-panel">
+          <div class="panel-header">
+            <div>
+              <h3>Financial Score Breakdown</h3>
+              <small class="panel-subtitle"
+                >A snapshot of your financial habits</small
+              >
+            </div>
+            <div class="health-score"><strong>87</strong><span>/100</span></div>
+          </div>
+          <div class="score-factors">
+            <div class="factor-card">
+              <div class="factor-icon blue-fill">💰</div>
+              <div class="factor-info">
+                <strong>Savings</strong><span>Steady growth</span>
+              </div>
+              <b class="factor-pts">+30 pts</b>
+            </div>
+            <div class="factor-card">
+              <div class="factor-icon purple-fill">🛍️</div>
+              <div class="factor-info">
+                <strong>Smart Spending</strong><span>Within budget</span>
+              </div>
+              <b class="factor-pts">+25 pts</b>
+            </div>
+            <div class="factor-card">
+              <div class="factor-icon cyan-fill">↔</div>
+              <div class="factor-info">
+                <strong>Cash Flow</strong><span>Positive balance</span>
+              </div>
+              <b class="factor-pts">+20 pts</b>
+            </div>
+            <div class="factor-card">
+              <div class="factor-icon orange-fill">🎯</div>
+              <div class="factor-info">
+                <strong>Goals</strong><span>On track</span>
+              </div>
+              <b class="factor-pts">+12 pts</b>
+            </div>
+          </div>
+        </section>
+        <section class="reports-chart-grid">
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <h3>Expenses by Category</h3>
+                <small class="panel-subtitle">This month · ₹16,000 total</small>
+              </div>
+              <i class="panel-action ph ph-dots-three"></i>
+            </div>
+            <div class="category-chart-content">
+              <div class="donut-chart-rich">
+                <div class="donut-center">
+                  <strong>₹16,000</strong><span>Total</span>
+                </div>
+              </div>
+              <div class="category-legend">
+                <div class="legend-item">
+                  <span class="dot food"></span><span>Food</span
+                  ><b>35%<em>₹5,600</em></b>
+                </div>
+                <div class="legend-item">
+                  <span class="dot education"></span><span>Education</span
+                  ><b>20%<em>₹3,200</em></b>
+                </div>
+                <div class="legend-item">
+                  <span class="dot transport"></span><span>Transport</span
+                  ><b>18%<em>₹2,880</em></b>
+                </div>
+                <div class="legend-item">
+                  <span class="dot entertainment"></span
+                  ><span>Entertainment</span><b>12%<em>₹1,920</em></b>
+                </div>
+                <div class="legend-item">
+                  <span class="dot others"></span><span>Others</span
+                  ><b>15%<em>₹2,400</em></b>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <h3 id="trend-title">Monthly Expenses</h3>
+                <small class="panel-subtitle">Weekly trend</small>
+              </div>
+              <span class="trend-summary">Peak ₹4,000</span>
+            </div>
+            <div class="report-line-chart">
+              <div class="report-y-axis">
+                <span>₹4k</span><span>₹3k</span><span>₹2k</span><span>₹1k</span
+                ><span>₹0</span>
+              </div>
+              <div class="report-chart-stage">
+                <svg viewBox="0 0 450 150" preserveAspectRatio="none">
+                  <line x1="0" y1="10" x2="450" y2="10" class="grid-line" />
+                  <line x1="0" y1="45" x2="450" y2="45" class="grid-line" />
+                  <line x1="0" y1="80" x2="450" y2="80" class="grid-line" />
+                  <line x1="0" y1="115" x2="450" y2="115" class="grid-line" />
+                  <path
+                    class="report-line"
+                    d="M15 125 C65 125 90 92 130 95 C175 98 190 38 235 38 C275 38 305 78 335 70 C370 65 395 15 435 15"
+                  />
+                  <circle cx="15" cy="125" r="5" class="report-point" />
+                  <circle cx="130" cy="95" r="5" class="report-point" />
+                  <circle cx="235" cy="38" r="5" class="report-point" />
+                  <circle cx="335" cy="70" r="5" class="report-point" />
+                  <circle cx="435" cy="15" r="5" class="report-point" />
+                </svg>
+                <div class="report-x-axis">
+                  <span>1 Jul</span><span>8 Jul</span><span>15 Jul</span
+                  ><span>22 Jul</span><span>29 Jul</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="reports-chart-grid">
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <h3>Income vs Expenses</h3>
+                <small class="panel-subtitle">Weekly comparison</small>
+              </div>
+              <div class="chart-indicators">
+                <span><i class="bar-income-dot"></i> Income</span
+                ><span><i class="bar-expense-dot"></i> Expenses</span>
+              </div>
+            </div>
+            <div class="report-bar-chart">
+              <div class="report-y-axis">
+                <span>₹8k</span><span>₹6k</span><span>₹4k</span><span>₹2k</span
+                ><span>₹0</span>
+              </div>
+              <div class="report-bars">
+                <div class="report-bar-group">
+                  <div class="report-bar-pair">
+                    <i class="report-bar-income" style="height: 60px"></i
+                    ><i class="report-bar-expense" style="height: 42px"></i>
+                  </div>
+                  <span>Week 1</span>
+                </div>
+                <div class="report-bar-group">
+                  <div class="report-bar-pair">
+                    <i class="report-bar-income" style="height: 85px"></i
+                    ><i class="report-bar-expense" style="height: 55px"></i>
+                  </div>
+                  <span>Week 2</span>
+                </div>
+                <div class="report-bar-group">
+                  <div class="report-bar-pair">
+                    <i class="report-bar-income" style="height: 52px"></i
+                    ><i class="report-bar-expense" style="height: 36px"></i>
+                  </div>
+                  <span>Week 3</span>
+                </div>
+                <div class="report-bar-group">
+                  <div class="report-bar-pair">
+                    <i class="report-bar-income" style="height: 68px"></i
+                    ><i class="report-bar-expense" style="height: 43px"></i>
+                  </div>
+                  <span>Week 4</span>
+                </div>
+                <div class="report-bar-group">
+                  <div class="report-bar-pair">
+                    <i class="report-bar-income" style="height: 63px"></i
+                    ><i class="report-bar-expense" style="height: 33px"></i>
+                  </div>
+                  <span>Week 5</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <h3>Top Spending Categories</h3>
+                <small class="panel-subtitle"
+                  >Ranked by this month’s total</small
+                >
+              </div>
+            </div>
+            <div class="spending-bars-list">
+              <div class="progress-row">
+                <div class="progress-meta">
+                  <span>Food</span><b>₹5,600 · 35%</b>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill purple-fill" style="width: 75%"></div>
+                </div>
+              </div>
+              <div class="progress-row">
+                <div class="progress-meta">
+                  <span>Education</span><b>₹3,200 · 20%</b>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill blue-fill" style="width: 48%"></div>
+                </div>
+              </div>
+              <div class="progress-row">
+                <div class="progress-meta">
+                  <span>Transport</span><b>₹2,880 · 18%</b>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill cyan-fill" style="width: 40%"></div>
+                </div>
+              </div>
+              <div class="progress-row">
+                <div class="progress-meta">
+                  <span>Entertainment</span><b>₹1,920 · 12%</b>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill orange-fill" style="width: 28%"></div>
+                </div>
+              </div>
+              <div class="progress-row">
+                <div class="progress-meta">
+                  <span>Others</span><b>₹2,400 · 15%</b>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill pink-fill" style="width: 32%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script>
+      (function () {
+        const root = document.documentElement;
+        const saved = localStorage.getItem("pocketmate-theme");
+        root.dataset.theme =
+          saved === "dark" || saved === "light" ? saved : "light";
+        window.addEventListener("storage", (e) => {
+          if (e.key === "pocketmate-theme")
+            root.dataset.theme = e.newValue === "dark" ? "dark" : "light";
+        });
+        const filter = document.getElementById("report-period");
+        const title = document.getElementById("trend-title");
+        filter.addEventListener("change", () => {
+          const label = filter.options[filter.selectedIndex].textContent;
+          title.textContent = label;
+          document
+            .querySelectorAll(".panel-subtitle")
+            .forEach((node, index) => {
+              if (index === 3)
+                node.textContent = label.replace(" Expenses", "") + " trend";
+            });
+        });
+      })();
+    </script>
+  </body>
+</html>
