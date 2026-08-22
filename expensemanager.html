@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>PocketMate - Expense Manager</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="app-body page-expensemanager">
+    <div class="app">
+      <aside class="sidebar">
+        <div class="logo">
+          <img
+            src="assets/images/logo.png"
+            alt="PocketMate Logo"
+            onerror="
+              this.src = 'https://via.placeholder.com/45/6C4EF6/FFFFFF?text=PM'
+            "
+          />
+          <h2>PocketMate</h2>
+        </div>
+        <nav class="navigation">
+          <a href="dashboard.html" class="nav-item"
+            ><span class="nav-icon"><i class="ph ph-squares-four"></i></span
+            ><span>Dashboard</span></a
+          ><a href="expensemanager.html" class="nav-item active"
+            ><span class="nav-icon"><i class="ph ph-wallet"></i></span
+            ><span>Expense Manager</span></a
+          ><a href="reports.html" class="nav-item"
+            ><span class="nav-icon"><i class="ph ph-chart-pie-slice"></i></span
+            ><span>Reports</span></a
+          ><a href="settings.html" class="nav-item"
+            ><span class="nav-icon"><i class="ph ph-gear"></i></span
+            ><span>Settings</span></a
+          ><a href="homepage.html" class="nav-item logout"
+            ><span class="nav-icon"><i class="ph ph-sign-out"></i></span
+            ><span>Logout</span></a
+          >
+        </nav>
+      </aside>
+      <main class="main-content">
+        <section class="page-intro">
+          <div>
+            <p class="eyebrow-app">MONEY WORKSPACE</p>
+            <h1>Expense Manager</h1>
+            <p>Capture, split, and understand every rupee.</p>
+          </div>
+          <div class="expense-kpis">
+            <span
+              ><i class="ph ph-arrow-down-left"></i><small>This month</small
+              ><strong id="monthTotal">₹16,000</strong></span
+            ><span
+              ><i class="ph ph-chart-line-up"></i><small>Budget used</small
+              ><strong id="budgetUsedKpi">80%</strong></span
+            >
+          </div>
+        </section>
+        <section class="expense-top-grid">
+          <div class="panel">
+            <div class="panel-header">
+              <div>
+                <h3>Add Transaction</h3>
+                <small class="panel-subtitle">Keep your records current</small>
+              </div>
+              <span class="panel-icon purple-icon"
+                ><i class="ph ph-plus"></i
+              ></span>
+            </div>
+            <form id="transactionForm" class="settings-form">
+              <label
+                >Type<select id="transactionType">
+                  <option>Expense</option>
+                  <option>Income</option>
+                </select></label
+              ><label
+                >Category<select id="transactionCategory">
+                  <option>Food</option>
+                  <option>Education</option>
+                  <option>Transport</option>
+                  <option>Entertainment</option>
+                  <option>Subscription</option>
+                  <option>Others</option>
+                </select></label
+              ><label
+                >Amount
+                <div class="input-prefix">
+                  <span>₹</span
+                  ><input
+                    id="transactionAmount"
+                    type="number"
+                    min="0"
+                    step=".01"
+                    placeholder="0.00"
+                    required
+                  /></div></label
+              ><label
+                >Date<input id="transactionDate" type="date" required /></label
+              ><label
+                >Description<input
+                  id="transactionDescription"
+                  type="text"
+                  placeholder="Enter description" /></label
+              ><button class="btn-primary" type="submit">
+                Add Transaction <i class="ph ph-arrow-right"></i>
+              </button>
+            </form>
+          </div>
+          <div class="panel" id="monthly-budget">
+            <div class="panel-header">
+              <div>
+                <h3>Monthly Budget</h3>
+                <small class="panel-subtitle">Your spending guardrail</small>
+              </div>
+              <span class="panel-icon orange-icon"
+                ><i class="ph ph-wallet"></i
+              ></span>
+            </div>
+            <div class="budget-display">
+              <span>Allocated budget</span
+              ><strong id="budgetValue">₹20,000</strong>
+            </div>
+            <div class="budget-visual">
+              <div class="budget-track">
+                <div id="budgetFill" style="width: 80%"></div>
+              </div>
+              <b id="budgetPercent">80%</b>
+            </div>
+            <div class="budget-split">
+              <span>Spent<strong id="budgetSpent">₹16,000</strong></span
+              ><span>Remaining<strong id="budgetLeft">₹4,000</strong></span>
+            </div>
+            <button class="btn-soft" id="editBudgetButton" type="button">
+              Edit Budget
+            </button>
+          </div>
+          <div class="panel" id="categories">
+            <div class="panel-header">
+              <div>
+                <h3>Categories</h3>
+                <small class="panel-subtitle">Organise your spending</small>
+              </div>
+              <span class="panel-icon blue-icon"
+                ><i class="ph ph-squares-four"></i
+              ></span>
+            </div>
+            <div id="categoryList" class="category-manager-list"></div>
+            <button class="add-inline-button" id="addCategoryButton">
+              <i class="ph ph-plus"></i> Add Category
+            </button>
+          </div>
+        </section>
+        <section class="expense-lower-grid">
+          <div class="panel" id="transaction-history">
+            <div class="panel-header">
+              <div>
+                <h3>Transaction History</h3>
+                <small class="panel-subtitle"
+                  >Hover a row to see account metadata</small
+                >
+              </div>
+              <span id="historyTotal" class="history-total">5 records</span>
+            </div>
+            <div class="history-tools">
+              <input
+                id="transactionSearch"
+                type="search"
+                placeholder="⌕ Search transactions..."
+              /><select id="historyCategory">
+                <option>All Categories</option>
+                <option>Food</option>
+                <option>Education</option>
+                <option>Transport</option>
+                <option>Entertainment</option>
+                <option>Subscription</option>
+                <option>Others</option>
+                <option>Income</option></select
+              ><select id="historyType">
+                <option>All Types</option>
+                <option>Expense</option>
+                <option>Income</option>
+              </select>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="transactionRows"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="expense-side-stack">
+            <div class="panel split-expense-panel">
+              <div class="panel-header">
+                <div>
+                  <h3>Split Expense</h3>
+                  <small class="panel-subtitle"
+                    >Equal or custom shared costs</small
+                  >
+                </div>
+                <span class="panel-icon pink-icon"
+                  ><i class="ph ph-users-three"></i
+                ></span>
+              </div>
+              <form id="splitForm" class="settings-form">
+                <label
+                  >Expense Name<input
+                    id="splitName"
+                    type="text"
+                    value="Pizza Party"
+                    required /></label
+                ><label
+                  >Total Amount
+                  <div class="input-prefix">
+                    <span>₹</span
+                    ><input
+                      id="splitAmount"
+                      type="number"
+                      value="1200"
+                      min="0"
+                      required
+                    /></div></label
+                ><label
+                  >Paid By<select id="paidBy">
+                    <option>You</option>
+                    <option>Rahul</option>
+                    <option>Aman</option>
+                    <option>Priya</option>
+                  </select></label
+                >
+                <div class="participant-editor">
+                  <input
+                    id="personName"
+                    type="text"
+                    placeholder="Add a person"
+                  /><button class="btn-soft" id="addPersonButton" type="button">
+                    Add
+                  </button>
+                </div>
+                <div id="participantsList" class="participants-list"></div>
+                <div class="split-options">
+                  <button type="button" class="active" data-mode="equal">
+                    Equal Split</button
+                  ><button type="button" data-mode="custom">
+                    Custom Split
+                  </button>
+                </div>
+                <div id="customAmounts"></div>
+                <button class="btn-primary" type="submit">
+                  Calculate Split <i class="ph ph-calculator"></i>
+                </button>
+              </form>
+              <div id="splitResult" class="split-result"></div>
+              <button id="saveSplitButton" class="btn-soft" type="button">
+                Save Split
+              </button>
+            </div>
+          </div>
+          <div class="goals-pools-below">
+            <div class="panel goals-panel" id="goals">
+              <div class="panel-header">
+                <div>
+                  <h3>Goals</h3>
+                  <small class="panel-subtitle">Your personal targets</small>
+                </div>
+                <button
+                  id="addGoalButton"
+                  class="add-inline-button"
+                  type="button"
+                >
+                  ＋ Add Goal
+                </button>
+              </div>
+              <div id="goalsList" class="goals-manager-list"></div>
+            </div>
+            <div class="panel pools-panel" id="pools">
+              <div class="panel-header">
+                <div>
+                  <h3>Pools</h3>
+                  <small class="panel-subtitle">Shared saving targets</small>
+                </div>
+                <button
+                  id="addPoolButton"
+                  class="add-inline-button"
+                  type="button"
+                >
+                  ＋ Add Pool
+                </button>
+              </div>
+              <div id="poolsList" class="pools-manager-list"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script>
+      const transactions = [
+        {
+          date: "2 Aug 2024",
+          category: "Food",
+          description: "Pizza",
+          type: "Expense",
+          amount: -350,
+        },
+        {
+          date: "1 Aug 2024",
+          category: "Education",
+          description: "Books",
+          type: "Expense",
+          amount: -900,
+        },
+        {
+          date: "1 Aug 2024",
+          category: "Transport",
+          description: "Bus Pass",
+          type: "Expense",
+          amount: -450,
+        },
+        {
+          date: "31 Jul 2024",
+          category: "Food",
+          description: "Coffee",
+          type: "Expense",
+          amount: -120,
+        },
+        {
+          date: "31 Jul 2024",
+          category: "Income",
+          description: "Salary",
+          type: "Income",
+          amount: 6000,
+        },
+        {
+          date: "29 Jul 2024",
+          category: "Food",
+          description: "Groceries",
+          type: "Expense",
+          amount: -1250,
+        },
+        {
+          date: "28 Jul 2024",
+          category: "Subscription",
+          description: "Music Plan",
+          type: "Expense",
+          amount: -299,
+        },
+        {
+          date: "27 Jul 2024",
+          category: "Transport",
+          description: "Metro Card",
+          type: "Expense",
+          amount: -600,
+        },
+        {
+          date: "26 Jul 2024",
+          category: "Education",
+          description: "Stationery",
+          type: "Expense",
+          amount: -480,
+        },
+        {
+          date: "25 Jul 2024",
+          category: "Entertainment",
+          description: "Movie Night",
+          type: "Expense",
+          amount: -750,
+        },
+        {
+          date: "24 Jul 2024",
+          category: "Food",
+          description: "Lunch",
+          type: "Expense",
+          amount: -280,
+        },
+        {
+          date: "23 Jul 2024",
+          category: "Income",
+          description: "Freelance Payment",
+          type: "Income",
+          amount: 3500,
+        },
+      ];
+      let budget = 20000;
+      const categories = [
+        ["Food", "35%", "🍔", "food-bg"],
+        ["Education", "20%", "🎓", "education-bg"],
+        ["Transport", "18%", "🚌", "transport-bg"],
+        ["Entertainment", "12%", "🎬", "entertainment-bg"],
+        ["Subscription", "8%", "💳", "subscription-bg"],
+      ];
+      const goals = [
+        { name: "Emergency Fund", saved: 18000, target: 30000, emoji: "🛟" },
+        { name: "MacBook", saved: 80000, target: 100000, emoji: "💻" },
+        { name: "Goa Trip", saved: 6000, target: 15000, emoji: "✈️" },
+      ];
+      const pools = [
+        { name: "Room Rent", saved: 12000, target: 20000, emoji: "🏠" },
+        { name: "Goa Trip", saved: 8500, target: 15000, emoji: "✈️" },
+      ];
+      let people = ["You", "Rahul", "Aman", "Priya"],
+        splitMode = "equal",
+        customValues = {};
+      const $ = (id) => document.getElementById(id);
+      const money = (v) =>
+        `${v < 0 ? "-" : "+"} ₹${Math.abs(v).toLocaleString("en-IN")}`;
+      function expenses() {
+        return transactions
+          .filter((x) => x.type === "Expense")
+          .reduce((s, x) => s + Math.abs(x.amount), 0);
+      }
+      function updateBudget() {
+        const spent = expenses(),
+          left = Math.max(0, budget - spent),
+          pct = Math.min(100, (spent / budget) * 100);
+        $("budgetValue").textContent = `₹${budget.toLocaleString("en-IN")}`;
+        $("budgetSpent").textContent = `₹${spent.toLocaleString("en-IN")}`;
+        $("budgetLeft").textContent = `₹${left.toLocaleString("en-IN")}`;
+        $("budgetFill").style.width = `${pct}%`;
+        $("budgetPercent").textContent = `${Math.round(pct)}%`;
+        $("monthTotal").textContent = `₹${spent.toLocaleString("en-IN")}`;
+        $("budgetUsedKpi").textContent = `${Math.round(pct)}%`;
+      }
+      function renderTransactions() {
+        const s = $("transactionSearch").value.toLowerCase(),
+          c = $("historyCategory").value,
+          t = $("historyType").value;
+        const rows = transactions.filter(
+          (x) =>
+            (!s ||
+              `${x.category} ${x.description}`.toLowerCase().includes(s)) &&
+            (c === "All Categories" || x.category === c) &&
+            (t === "All Types" || x.type === t),
+        );
+        $("historyTotal").textContent = `${rows.length} records`;
+        $("transactionRows").innerHTML =
+          rows
+            .map(
+              (x) =>
+                `<tr><td>${x.date}</td><td><span class="table-category ${x.category.toLowerCase()}">${x.category}</span></td><td>${x.description}</td><td>${x.type}</td><td class="${x.amount < 0 ? "amount-expense" : "amount-income"}">${money(x.amount)}</td><td><button class="table-action delete-action" data-index="${transactions.indexOf(x)}"><i class="ph ph-trash"></i></button></td></tr>`,
+            )
+            .join("") ||
+          '<tr><td colspan="6" class="empty-row">No transactions found</td></tr>';
+        document.querySelectorAll(".delete-action").forEach(
+          (b) =>
+            (b.onclick = () => {
+              transactions.splice(+b.dataset.index, 1);
+              renderTransactions();
+              updateBudget();
+            }),
+        );
+      }
+      function renderCategories() {
+        $("categoryList").innerHTML = categories
+          .map(
+            (c, i) =>
+              `<div><span class="category-badge ${c[3]}">${c[2]}</span><span>${c[0]}</span><b>${c[1]}</b><button class="remove-category" data-index="${i}"><i class="ph ph-trash"></i></button></div>`,
+          )
+          .join("");
+        document.querySelectorAll(".remove-category").forEach(
+          (b) =>
+            (b.onclick = () => {
+              categories.splice(+b.dataset.index, 1);
+              renderCategories();
+            }),
+        );
+      }
+      function renderGoals() {
+        $("goalsList").innerHTML = goals
+          .map(
+            (g, i) =>
+              `<div class="goal-manager-item"><div class="goal-manager-title"><span>${g.emoji}</span><strong>${g.name}</strong><b>₹${g.saved.toLocaleString("en-IN")} / ₹${g.target.toLocaleString("en-IN")}</b><button class="remove-item" data-kind="goal" data-index="${i}">×</button></div><div class="progress-track"><div class="progress-fill" style="width:${Math.min(100, (g.saved / g.target) * 100)}%"></div></div></div>`,
+          )
+          .join("");
+        document.querySelectorAll('.remove-item[data-kind="goal"]').forEach(
+          (b) =>
+            (b.onclick = () => {
+              goals.splice(+b.dataset.index, 1);
+              renderGoals();
+            }),
+        );
+      }
+      function renderPools() {
+        $("poolsList").innerHTML = pools
+          .map(
+            (p, i) =>
+              `<div class="pool-manager-item"><div class="pool-manager-title"><span class="pool-icon">${p.emoji}</span><strong>${p.name}</strong><b>₹${p.saved.toLocaleString("en-IN")} / ₹${p.target.toLocaleString("en-IN")}</b><button class="remove-item" data-kind="pool" data-index="${i}">×</button></div><div class="progress-track"><div class="progress-fill" style="width:${Math.min(100, (p.saved / p.target) * 100)}%"></div></div></div>`,
+          )
+          .join("");
+        document.querySelectorAll('.remove-item[data-kind="pool"]').forEach(
+          (b) =>
+            (b.onclick = () => {
+              pools.splice(+b.dataset.index, 1);
+              renderPools();
+            }),
+        );
+      }
+      function renderPeople() {
+        $("participantsList").innerHTML = people
+          .map(
+            (p, i) =>
+              `<span class="person-chip">${["🙋", "👨🏻", "👨🏽", "👩🏻"][i % 4]} ${p}<button type="button" data-index="${i}" class="remove-person">×</button></span>`,
+          )
+          .join("");
+        document.querySelectorAll(".remove-person").forEach(
+          (b) =>
+            (b.onclick = () => {
+              if (people.length > 1) {
+                people.splice(+b.dataset.index, 1);
+                renderPeople();
+                renderCustom();
+              }
+            }),
+        );
+      }
+      function renderCustom() {
+        if (splitMode !== "custom") {
+          $("customAmounts").innerHTML = "";
+          return;
+        }
+        $("customAmounts").innerHTML = people
+          .map(
+            (p) =>
+              `<label class="settings-form"><span>${p} custom amount</span><input class="custom-person" data-person="${p}" type="number" min="0" value="${customValues[p] || 0}"></label>`,
+          )
+          .join("");
+      }
+      function splitResult(e) {
+        e.preventDefault();
+        const total = +$("splitAmount").value || 0;
+        let values;
+        if (splitMode === "equal") {
+          const share = people.length ? total / people.length : 0;
+          values = people.map((p) => [p, share]);
+        } else {
+          values = people.map((p) => [
+            p,
+            +document.querySelector('.custom-person[data-person="' + p + '"]')
+              ?.value || 0,
+          ]);
+          const used = values.reduce((s, x) => s + x[1], 0);
+          if (Math.round(used * 100) !== Math.round(total * 100)) {
+            alert("Custom amounts must equal the total amount.");
+            return;
+          }
+        }
+        $("splitResult").innerHTML =
+          '<div class="split-result-title">' +
+          $("splitName").value +
+          " · " +
+          (splitMode === "equal" ? "Equal" : "Custom") +
+          ' split</div><div class="split-people">' +
+          values
+            .map(
+              (x, i) =>
+                '<div class="split-person"><i class="avatar-mini">' +
+                ["🙋", "👨🏻", "👨🏽", "👩🏻"][i % 4] +
+                "</i><span>" +
+                x[0] +
+                "</span><b>₹" +
+                x[1].toFixed(2) +
+                "</b></div>",
+            )
+            .join("") +
+          "</div>";
+      }
+      document
+        .querySelector("#transactionForm")
+        ?.addEventListener("submit", (e) => e.preventDefault());
+      $("transactionForm").onsubmit = (e) => {
+        e.preventDefault();
+        const a = +$("transactionAmount").value,
+          typ = $("transactionType").value;
+        transactions.unshift({
+          date: $("transactionDate").value,
+          category: $("transactionCategory").value,
+          description: $("transactionDescription").value || "New transaction",
+          type: typ,
+          amount: typ === "Expense" ? -a : a,
+        });
+        e.target.reset();
+        renderTransactions();
+        updateBudget();
+      };
+      ["transactionSearch", "historyCategory", "historyType"].forEach(
+        (id) => ($(id).oninput = renderTransactions),
+      );
+      $("editBudgetButton").onclick = () => {
+        const v = +prompt("Set monthly budget", budget);
+        if (v > 0) {
+          budget = v;
+          updateBudget();
+        }
+      };
+      $("addCategoryButton").onclick = () => {
+        const n = prompt("Category name");
+        if (n) categories.push([n, "0%", "🏷️", "subscription-bg"]);
+        renderCategories();
+      };
+      $("addPersonButton").onclick = () => {
+        const n = $("personName").value.trim();
+        if (n && !people.includes(n)) {
+          people.push(n);
+          $("personName").value = "";
+          renderPeople();
+          renderCustom();
+        }
+      };
+      document.querySelectorAll(".split-options button").forEach(
+        (b) =>
+          (b.onclick = () => {
+            document
+              .querySelectorAll(".split-options button")
+              .forEach((x) => x.classList.remove("active"));
+            b.classList.add("active");
+            splitMode = b.dataset.mode;
+            renderCustom();
+          }),
+      );
+      $("splitForm").onsubmit = splitResult;
+      $("saveSplitButton").onclick = () => alert("Split expense saved.");
+      $("addGoalButton").onclick = () => {
+        const n = prompt("Goal name");
+        const t = +prompt("Goal target amount", "10000");
+        if (n && t > 0) {
+          goals.push({ name: n, saved: 0, target: t, emoji: "🎯" });
+          renderGoals();
+        }
+      };
+      $("addPoolButton").onclick = () => {
+        const n = prompt("Pool name");
+        const t = +prompt("Pool target amount", "10000");
+        if (n && t > 0) {
+          pools.push({ name: n, saved: 0, target: t, emoji: "🤝" });
+          renderPools();
+        }
+      };
+      (function () {
+        const saved = localStorage.getItem("pocketmate-theme");
+        document.documentElement.dataset.theme =
+          saved === "dark" || saved === "light" ? saved : "light";
+        window.addEventListener("storage", (e) => {
+          if (e.key === "pocketmate-theme")
+            document.documentElement.dataset.theme =
+              e.newValue === "dark" ? "dark" : "light";
+        });
+      })();
+      $("transactionDate").valueAsDate = new Date();
+      renderCategories();
+      renderPeople();
+      renderGoals();
+      renderPools();
+      renderCustom();
+      renderTransactions();
+      updateBudget();
+    </script>
+  </body>
+</html>

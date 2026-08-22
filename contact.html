@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - PocketMate</title>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="page-contact">
+    <header>
+      <div class="brand-container">
+        <div class="logo">
+          <img
+            src="assets/images/logo.png"
+            alt="PocketMate Logo"
+            onerror="
+              this.src = 'https://via.placeholder.com/45/6C4EF6/FFFFFF?text=PM'
+            "
+          />
+          <div class="logo-text"><h2>PocketMate</h2></div>
+        </div>
+        <label
+          class="theme-switch mobile-theme-switch"
+          aria-label="Toggle Theme"
+          ><input type="checkbox" id="mobile-theme-toggle" /><span
+            class="slider"
+            ><i class="ph ph-moon"></i><i class="ph ph-sun"></i></span
+        ></label>
+      </div>
+      <nav class="top-nav">
+        <a href="index.html">Home</a><a href="about.html">About Us</a
+        ><a href="contact.html" class="active">Contact Us</a>
+      </nav>
+      <div class="desktop-buttons">
+        <a href="signin.html" class="signin">Sign In</a
+        ><a href="signup.html" class="signup">Sign Up</a
+        ><label
+          class="theme-switch desktop-theme-switch"
+          aria-label="Toggle Theme"
+          ><input type="checkbox" id="desktop-theme-toggle" /><span
+            class="slider"
+            ><i class="ph ph-moon"></i><i class="ph ph-sun"></i></span
+        ></label>
+      </div>
+    </header>
+    <nav class="bottom-nav">
+      <a href="index.html"
+        ><span class="icon"><i class="ph ph-house"></i></span
+        ><span>Home</span></a
+      ><a href="about.html"
+        ><span class="icon"><i class="ph ph-info"></i></span
+        ><span>About</span></a
+      ><a href="contact.html" class="active"
+        ><span class="icon"><i class="ph ph-phone"></i></span
+        ><span>Contact</span></a
+      ><a href="signin.html"
+        ><span class="icon"><i class="ph ph-user"></i></span
+        ><span>Sign In</span></a
+      ><a href="signup.html"
+        ><span class="icon"><i class="ph ph-user-plus"></i></span
+        ><span>Sign Up</span></a
+      >
+    </nav>
+    <main class="contact-page">
+      <section class="contact-hero">
+        <span class="tagline">WE'RE HERE FOR YOU</span>
+        <h1>How can we help?</h1>
+        <p>
+          Send us a note and our small, human team will get back to you within
+          one business day.
+        </p>
+      </section>
+      <section class="contact-layout">
+        <div class="contact-column">
+          <article class="contact-panel">
+            <h2>Contact Information</h2>
+            <p>
+              Reach out through any of these channels. You do not need a
+              PocketMate account to contact us.
+            </p>
+            <div class="contact-channel-list">
+              <div class="contact-channel">
+                <span class="contact-channel-icon"
+                  ><i class="ph ph-envelope-simple"></i></span
+                ><span
+                  ><strong>Email us</strong
+                  ><small>support@pocketmate.app</small></span
+                ><i class="ph ph-arrow-up-right"></i>
+              </div>
+              <div class="contact-channel">
+                <span class="contact-channel-icon"
+                  ><i class="ph ph-phone"></i></span
+                ><span
+                  ><strong>Call us</strong><small>+91 98149 XXXXX</small></span
+                ><i class="ph ph-arrow-up-right"></i>
+              </div>
+              <div class="contact-channel">
+                <span class="contact-channel-icon"
+                  ><i class="ph ph-map-pin"></i></span
+                ><span
+                  ><strong>Visit us</strong><small>Punjab, India</small></span
+                ><i class="ph ph-arrow-up-right"></i>
+              </div>
+            </div>
+          </article>
+          <article class="contact-panel">
+            <h2>FAQs</h2>
+            <p>Quick answers to common questions.</p>
+            <div class="contact-channel-list">
+              <div class="contact-channel">
+                <span class="contact-channel-icon"
+                  ><i class="ph ph-question"></i></span
+                ><span
+                  ><strong>Is PocketMate free?</strong
+                  ><small>Yes, basic features are free forever</small></span
+                >
+              </div>
+              <div class="contact-channel">
+                <span class="contact-channel-icon"
+                  ><i class="ph ph-question"></i></span
+                ><span
+                  ><strong>Can I split expenses?</strong
+                  ><small>Yes, easily split with friends</small></span
+                >
+              </div>
+              <div class="contact-channel">
+                <span class="contact-channel-icon"
+                  ><i class="ph ph-question"></i></span
+                ><span
+                  ><strong>Is my data secure?</strong
+                  ><small>Your data is encrypted and private</small></span
+                >
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="contact-column">
+          <article class="contact-panel">
+            <h2>Send us a message</h2>
+            <p>
+              Tell us what is on your mind. We will respond as soon as possible.
+            </p>
+            <form id="contactForm" class="contact-form">
+              <label
+                >Your name<input
+                  type="text"
+                  id="contactName"
+                  placeholder="John Doe"
+                  required /></label
+              ><label
+                >Email address<input
+                  type="email"
+                  id="contactEmail"
+                  placeholder="you@example.com"
+                  required /></label
+              ><label
+                >What can we help with?<select id="contactTopic" required>
+                  <option value="">Select a topic</option>
+                  <option>General question</option>
+                  <option>Feedback</option>
+                  <option>Bug report</option>
+                  <option>Feature request</option>
+                  <option>Account help</option>
+                  <option>Other</option>
+                </select></label
+              ><label
+                >Your message<textarea
+                  id="contactMessage"
+                  placeholder="Tell us a little more..."
+                  required
+                ></textarea></label
+              ><button class="btn" type="submit">
+                Send message <i class="ph ph-paper-plane-tilt"></i>
+              </button>
+              <p id="contactStatus" class="status-message"></p>
+            </form>
+          </article>
+        </div>
+      </section>
+      <p class="contact-note">
+        <i class="ph ph-lock-key"></i
+        ><span
+          >Your message is secure. We never share your personal
+          information.</span
+        >
+      </p>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <div class="footer-about">
+          <h2>PocketMate</h2>
+          <p>
+            Helping students manage expenses, budgets and shared spending with
+            ease.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="signin.html">Sign In</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <p>Email : support@studenttracker.com</p>
+          <p>Phone : +91 98149 XXXXX</p>
+          <p>Location : Punjab, India</p>
+        </div>
+      </div>
+      <hr />
+      <p class="copyright">© 2026 PocketMate. All Rights Reserved.</p>
+    </footer>
+    <script>
+      const d = document.getElementById("desktop-theme-toggle"),
+        m = document.getElementById("mobile-theme-toggle"),
+        h = document.documentElement,
+        s = localStorage.getItem("pocketmate-theme") === "dark";
+      h.dataset.theme = s ? "dark" : "light";
+      d.checked = s;
+      m.checked = s;
+      function theme(e) {
+        const x = e.target.checked;
+        h.dataset.theme = x ? "dark" : "light";
+        localStorage.setItem("pocketmate-theme", x ? "dark" : "light");
+        d.checked = x;
+        m.checked = x;
+      }
+      d.addEventListener("change", theme);
+      m.addEventListener("change", theme);
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const status = document.getElementById("contactStatus");
+          status.textContent =
+            "Thanks — your message has been sent! We will get back to you soon.";
+          this.reset();
+        });
+    </script>
+    <script>
+      document.querySelectorAll("a").forEach(function (link) {
+        if (link.textContent.trim() === "Home") link.href = "homepage.html";
+      });
+    </script>
+  </body>
+</html>
