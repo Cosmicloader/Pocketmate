@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In | PocketMate</title>
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body class="auth-page page-signin">
+    <main class="auth-shell">
+      <section class="auth-intro" aria-label="PocketMate introduction">
+        <a class="brand" href="homepage.html"
+          ><img
+            src="assets/images/logo.png"
+            alt="PocketMate logo"
+            onerror="
+              this.src = 'https://via.placeholder.com/45/6C4EF6/FFFFFF?text=PM'
+            "
+          /><span>PocketMate</span></a
+        >
+        <div class="intro-copy">
+          <span class="tagline">SMART SPENDING FOR STUDENTS</span>
+          <h1>Track.<br />Manage.<br />Achieve More.</h1>
+          <p>Stay organized. Spend smarter.<br />Make every rupee count.</p>
+        </div>
+        <p class="intro-note">A calmer way to understand every rupee.</p>
+      </section>
+      <section class="auth-panel">
+        <div class="form-wrap">
+          <a class="mobile-brand" href="homepage.html"
+            ><img
+              src="assets/images/logo.png"
+              alt="PocketMate logo"
+              onerror="
+                this.src =
+                  'https://via.placeholder.com/45/6C4EF6/FFFFFF?text=PM'
+              "
+            />
+            <span>PocketMate</span></a
+          >
+          <p class="form-kicker">WELCOME BACK</p>
+          <h2>Sign in to your account</h2>
+          <p class="form-subtitle">Pick up where you left off.</p>
+          <form
+            id="signin-form"
+            action="dashboard.html"
+            method="get"
+            data-test-email="test@student.com"
+            data-test-password="demo123"
+          >
+            <div class="field">
+              <label for="signin-email">Email address</label
+              ><input
+                type="email"
+                id="signin-email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+            <div class="field">
+              <div class="field-heading">
+                <label for="signin-password">Password</label
+                ><a href="#forgot-password">Forgot password?</a>
+              </div>
+              <input
+                type="password"
+                id="signin-password"
+                name="password"
+                placeholder="Enter your password"
+                autocomplete="current-password"
+                required
+              />
+            </div>
+            <label class="checkbox-label"
+              ><input
+                type="checkbox"
+                id="signin-remember"
+                name="remember"
+              /><span>Keep me signed in</span></label
+            >
+            <p class="demo-credentials">
+              Demo credentials:
+              <a href="mailto:test@student.com">test@student.com</a> / demo123
+            </p>
+            <button type="submit" class="submit-button">
+              Sign In <span aria-hidden="true">&#8594;</span>
+            </button>
+          </form>
+          <p class="switch-auth">
+            New to PocketMate? <a href="signup.html">Create an account</a>
+          </p>
+          <a class="back-link" href="homepage.html"
+            ><span aria-hidden="true">&#8592;</span> Back to home</a
+          >
+        </div>
+      </section>
+    </main>
+    <script>
+      (function () {
+        const root = document.documentElement,
+          saved = localStorage.getItem("pocketmate-theme");
+        root.dataset.theme = saved === "dark" ? "dark" : "light";
+      })();
+    </script>
+  </body>
+</html>
