@@ -7,6 +7,8 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/polish.css" />
+      <script src="js/pm-core.js"></script>
   </head>
   <body class="page-contact">
     <header>
@@ -30,7 +32,7 @@
         ></label>
       </div>
       <nav class="top-nav">
-        <a href="index.html">Home</a><a href="about.html">About Us</a
+        <a href="homepage.html">Home</a><a href="about.html">About Us</a
         ><a href="contact.html" class="active">Contact Us</a>
       </nav>
       <div class="desktop-buttons">
@@ -46,7 +48,7 @@
       </div>
     </header>
     <nav class="bottom-nav">
-      <a href="index.html"
+      <a href="homepage.html"
         ><span class="icon"><i class="ph ph-house"></i></span
         ><span>Home</span></a
       ><a href="about.html"
@@ -199,7 +201,7 @@
         <div class="footer-links">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="homepage.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="contact.html">Contact Us</a></li>
             <li><a href="signin.html">Sign In</a></li>
@@ -238,8 +240,8 @@
         .addEventListener("submit", function (e) {
           e.preventDefault();
           const status = document.getElementById("contactStatus");
-          status.textContent =
-            "Thanks — your message has been sent! We will get back to you soon.";
+          PM.saveContact({name:document.getElementById("contactName").value,email:document.getElementById("contactEmail").value,topic:document.getElementById("contactTopic").value,message:document.getElementById("contactMessage").value});
+          status.textContent = "Thanks — your message has been saved. Our team will reply by email.";
           this.reset();
         });
     </script>
@@ -248,5 +250,6 @@
         if (link.textContent.trim() === "Home") link.href = "homepage.html";
       });
     </script>
+  <script>PM.ready.then(PM.wireNav)</script>
   </body>
 </html>

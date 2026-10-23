@@ -1,0 +1,468 @@
+/* ==========================================================================
+   PocketMate polish layer v1.2  (additive only; loads after styles.css)
+   Goal: clearer edges, visible toggles, honest focus states, tactile motion.
+   Nothing here changes layout, palette or copy. Delete this file to revert.
+   ========================================================================== */
+
+:root {
+  --edge: #d9ccf7;            /* clearer card / control outline than --border */
+  --edge-strong: #b8a6f0;     /* hover + toggle outline */
+  --ring: 0 0 0 3px rgba(108, 78, 246, 0.24);
+  --lift: 0 1px 2px rgba(86, 54, 150, 0.06), 0 8px 22px rgba(86, 54, 150, 0.09);
+  --lift-hover: 0 2px 4px rgba(86, 54, 150, 0.08), 0 16px 34px rgba(86, 54, 150, 0.16);
+  --inset: inset 0 1px 3px rgba(86, 54, 150, 0.16);
+  --ease: cubic-bezier(0.22, 0.8, 0.25, 1);
+  --ok-ink: #0f7a5a;          /* readable greens / ambers / reds for small text */
+  --warn-ink: #8f5b00;
+  --bad-ink: #c0284f;
+  --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236c4ef6' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+}
+[data-theme="dark"] {
+  --edge: #583688;
+  --edge-strong: #7d58b8;
+  --ring: 0 0 0 3px rgba(176, 120, 255, 0.4);
+  --lift: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 22px rgba(0, 0, 0, 0.35);
+  --lift-hover: 0 2px 4px rgba(0, 0, 0, 0.4), 0 16px 34px rgba(0, 0, 0, 0.5);
+  --inset: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+  --ok-ink: #74f0c8;
+  --warn-ink: #ffd27d;
+  --bad-ink: #ff9db8;
+  --chevron: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23c9a6ff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+}
+
+::selection { background: rgba(108, 78, 246, 0.24); }
+input[type="checkbox"], input[type="radio"] { accent-color: var(--primary); }
+
+/* ---------- 1. Honest keyboard focus everywhere ---------- */
+a:focus-visible, button:focus-visible, [role="button"]:focus-visible, .nav-item:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--primary); outline-offset: 2px;
+}
+.sidebar .nav-item:focus-visible { outline-color: #fff; }
+
+/* ---------- 2. Cards: defined edge + layered shadow, soft deepen on hover ---------- */
+.panel, .settings-tile, .data-card, .profile-panel, .page-intro {
+  border-color: var(--edge);
+  box-shadow: var(--lift);
+  transition: box-shadow 0.25s var(--ease), border-color 0.25s var(--ease), transform 0.25s var(--ease), background-color 0.25s;
+}
+.panel:hover, .profile-panel:hover { box-shadow: var(--lift-hover); }
+.summary-card, .friend, .bill, .goal, .pool, .category, .factor-card, .tracker-chip, .history-row, .split-card,
+.goal-manager-item, .pool-manager-item, .category-manager-list > div, .data-card, .expense-kpis > span {
+  transition: transform 0.22s var(--ease), box-shadow 0.22s var(--ease), border-color 0.22s, background-color 0.22s;
+}
+.summary-card:hover, .friend:hover { transform: translateY(-2px); box-shadow: var(--lift-hover); }
+.bill, .goal, .pool, .category, .factor-card, .tracker-chip, .history-row, .split-card, .goal-manager-item, .pool-manager-item,
+.category-manager-list > div, .expense-kpis > span { border-color: var(--edge); }
+.bill:hover, .goal:hover, .pool:hover, .factor-card:hover, .tracker-chip:hover, .history-row:hover, .split-card:hover,
+.goal-manager-item:hover, .pool-manager-item:hover, .category-manager-list > div:hover, .expense-kpis > span:hover, .data-card:hover {
+  transform: translateY(-2px); border-color: var(--edge-strong); box-shadow: var(--lift);
+}
+.settings-tile:hover { border-color: var(--edge-strong); box-shadow: var(--lift-hover); }
+.category:hover { transform: translateY(-3px); }
+.category-icon { transition: transform 0.22s var(--ease), box-shadow 0.22s; }
+.category:hover .category-icon { transform: scale(1.08); box-shadow: var(--lift); }
+
+/* recent transactions: quiet dividers so rows read as rows */
+.transaction { box-shadow: 0 1px 0 color-mix(in srgb, var(--edge) 55%, transparent); transition: background-color 0.2s, transform 0.2s var(--ease), border-color 0.2s; }
+.transaction:hover, .transaction.open { box-shadow: var(--lift); }
+
+/* ---------- 3. Progress tracks: visible rails, glossy fills, animated width ---------- */
+.progress-track, .health-track, .budget-track, .bar-track { box-shadow: var(--inset), 0 0 0 1px var(--edge); }
+.progress-fill, .health-fill, .bar-fill, #budgetFill { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.38); transition: width 0.7s var(--ease), background-color 0.3s; }
+
+/* ---------- 4. Form controls: stronger outline, hover, focus ring, custom chevron ---------- */
+.settings-form input, .settings-form select, .settings-form textarea, .history-tools input, .history-tools select,
+.participant-editor input, .field input, .field select, .field textarea, .contact-form input, .contact-form select,
+.contact-form textarea, .input-prefix, .time-filter {
+  border-color: var(--edge); transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+.settings-form input:hover, .settings-form select:hover, .settings-form textarea:hover, .history-tools input:hover,
+.history-tools select:hover, .participant-editor input:hover, .field input:hover, .field select:hover, .field textarea:hover,
+.contact-form input:hover, .contact-form select:hover, .contact-form textarea:hover, .input-prefix:hover, .time-filter:hover {
+  border-color: var(--edge-strong);
+}
+.settings-form input:focus, .settings-form select:focus, .settings-form textarea:focus, .history-tools input:focus,
+.history-tools select:focus, .participant-editor input:focus, .field input:focus, .field select:focus, .field textarea:focus,
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus, .time-filter:focus,
+.input-prefix:focus-within {
+  border-color: var(--primary); box-shadow: var(--ring); outline: none;
+}
+.settings-form select, .history-tools select, .field select, .contact-form select, .time-filter, .participant-editor select {
+  appearance: none; -webkit-appearance: none; padding-right: 36px;
+  background-image: var(--chevron); background-repeat: no-repeat; background-position: right 12px center; background-size: 15px;
+}
+.auth-page .field input:hover { border-color: var(--edge-strong); }
+.auth-page .field input:focus { box-shadow: var(--ring); }
+.status-message { transition: opacity 0.25s; }
+
+/* ---------- 5. Toggles ---------- */
+/* Settings dark-mode switch: was #dce0ea on white (almost invisible) and mouse-only */
+.master-theme-switch input { display: block; position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; z-index: 2; }
+.master-theme-switch span { background: #cdc5e8; box-shadow: inset 0 0 0 1.5px var(--edge-strong), var(--inset); transition: background 0.28s var(--ease), box-shadow 0.28s var(--ease); }
+.master-theme-switch span:before { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.28), 0 3px 8px rgba(58, 34, 120, 0.3); transition: transform 0.3s var(--ease), box-shadow 0.2s; }
+.master-theme-switch:hover span { box-shadow: inset 0 0 0 1.5px var(--primary), var(--inset); }
+.master-theme-switch input:focus-visible + span { box-shadow: var(--ring), inset 0 0 0 1.5px var(--primary); }
+.master-theme-switch input:checked + span { background: linear-gradient(90deg, var(--primary), var(--primary2)); box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.28), 0 0 0 1px var(--primary), 0 4px 12px rgba(108, 78, 246, 0.42); }
+.master-theme-switch input:active + span:before { box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 4px rgba(58, 34, 120, 0.25); }
+[data-theme="dark"] .master-theme-switch span { background: #4a2f78; }
+
+/* Marketing-page theme switch */
+.theme-switch .slider { box-shadow: inset 0 0 0 1.5px var(--edge-strong), var(--inset); }
+.theme-switch:hover .slider { box-shadow: inset 0 0 0 1.5px var(--primary), var(--inset); }
+.theme-switch input:focus-visible + .slider { box-shadow: var(--ring), inset 0 0 0 1.5px var(--primary); }
+
+/* Split tracker switches (per-person + overall) */
+.switch i { box-shadow: inset 0 0 0 1.5px var(--edge-strong), var(--inset); transition: background 0.25s var(--ease), box-shadow 0.25s var(--ease); }
+.switch i:after { background: #fff; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(58, 34, 120, 0.25); transition: transform 0.28s var(--ease); }
+.switch:hover i { box-shadow: inset 0 0 0 1.5px var(--primary), var(--inset); }
+.switch input:checked + i { box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.3), 0 2px 8px rgba(53, 201, 161, 0.45); }
+.switch input:focus-visible + i { box-shadow: var(--ring), inset 0 0 0 1.5px var(--primary); }
+.switch input:checked ~ span { color: var(--ok-ink); }
+.owe-row { transition: opacity 0.25s, background-color 0.25s, border-color 0.2s; }
+.owe-row:hover { border-color: var(--edge-strong); }
+
+/* ---------- 6. Badges + figures: readable ink on tinted backgrounds ---------- */
+.status-badge { box-shadow: inset 0 0 0 1px color-mix(in srgb, currentColor 28%, transparent); }
+.status-badge.settled { color: var(--ok-ink); }
+.status-badge.partial { color: var(--warn-ink); }
+.status-badge.pending { color: var(--bad-ink); }
+.tracker-chip.owed b { color: var(--ok-ink); }
+.tracker-chip.owe b { color: var(--bad-ink); }
+
+/* ---------- 7. Buttons: tactile hover + press, clearer soft buttons ---------- */
+.btn-primary, .btn-soft, .btn-danger, .submit-button, .split-options button, .outline, .add-inline-button, .settings-tile.settings-button, .nav-item {
+  transition: transform 0.18s var(--ease), box-shadow 0.22s, background-color 0.2s, border-color 0.2s, color 0.2s, filter 0.2s;
+}
+.btn-primary:hover, .submit-button:hover { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(108, 78, 246, 0.38); filter: brightness(1.04); }
+.btn-danger:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(214, 51, 108, 0.35); }
+.btn-primary:active, .btn-soft:active, .btn-danger:active, .submit-button:active, .split-options button:active, .outline:active { transform: translateY(0) scale(0.98); box-shadow: none; }
+.btn-soft { border: 1px solid var(--edge-strong); }
+.btn-soft:hover { transform: translateY(-1px); border-color: var(--primary); background-color: var(--track); box-shadow: var(--lift); }
+.outline:hover { background-color: var(--track); box-shadow: var(--lift); transform: translateY(-1px); }
+.split-options button:hover { border-color: var(--primary); color: var(--primary); }
+.split-options button.active { box-shadow: 0 6px 16px rgba(108, 78, 246, 0.35); }
+.split-options button.active:hover { color: #fff; }
+button:disabled, .btn-primary:disabled, .btn-soft:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
+
+/* small icon buttons (edit / delete / + / x / pay): real hit area + visible hover */
+.table-action, .remove-item, .category-manager-list button {
+  display: inline-flex; width: 30px; height: 30px; margin-left: 4px; align-items: center; justify-content: center;
+  border-radius: 9px; line-height: 1; transition: background-color 0.18s, color 0.18s, transform 0.18s var(--ease), box-shadow 0.18s;
+}
+.table-action:hover, .remove-item:hover, .category-manager-list button:hover { background: var(--track); transform: scale(1.1); box-shadow: inset 0 0 0 1px var(--edge-strong); }
+.edit-action:hover, .remove-item[data-act="add"]:hover { color: var(--primary); }
+.remove-item[data-act="pay"], .remove-item[data-act="pay"]:hover { color: var(--ok-ink); }
+.table-action:active, .remove-item:active { transform: scale(0.94); }
+.add-inline-button { padding: 6px 10px; border-radius: 10px; }
+.add-inline-button:hover { background: var(--track); box-shadow: inset 0 0 0 1px var(--edge); }
+
+/* ---------- 8. Tables, chips, pills ---------- */
+.table-wrap { border-color: var(--edge); scrollbar-width: thin; scrollbar-color: var(--edge-strong) transparent; }
+.table-wrap tbody tr { transition: background-color 0.15s; }
+.table-wrap tbody tr:hover { background: var(--panel-alt); }
+:where(.table-category) { background: var(--primary); }          /* custom categories were white-on-white */
+.table-category.health-cat { background: var(--teal); }
+.table-category.custom-cat { background: var(--primary); }
+.table-category.subscription { background: var(--peach); color: #5a3300; }
+.category-badge.health-bg { background: var(--teal); }
+.person-chip { border: 1px solid var(--edge); cursor: pointer; transition: all 0.2s var(--ease); user-select: none; }
+.person-chip.is-on { background: var(--panel-alt); border-color: var(--primary); box-shadow: 0 0 0 1px var(--primary) inset; }
+.person-chip.is-on:not([data-toggle="You"])::after { content: "\2713"; color: var(--primary); font-weight: 800; }
+.person-chip.is-off { opacity: 0.6; border-style: dashed; }
+.person-chip:not([data-toggle="You"]):hover { transform: translateY(-1px); box-shadow: var(--lift); }
+.pill { box-shadow: inset 0 0 0 1px var(--edge); }
+.history-list, .pending-grid { scrollbar-width: thin; scrollbar-color: var(--edge-strong) transparent; }
+
+/* ---------- 9. Reports ---------- */
+.report-x-axis { padding-right: 6px; box-sizing: border-box; }
+.report-bar-income, .report-bar-expense { transform-origin: bottom; transition: filter 0.2s, transform 0.2s var(--ease); }
+.report-bar-income:hover, .report-bar-expense:hover { filter: brightness(1.1); transform: scaleY(1.03); }
+.report-point { transition: r 0.2s, filter 0.2s; }
+.report-point:hover { r: 7; filter: drop-shadow(0 2px 4px rgba(108, 78, 246, 0.5)); }
+.legend-line, .legend-item { border-radius: 8px; transition: background-color 0.18s; }
+.legend-line:hover, .legend-item:hover { background: var(--panel-alt); }
+
+/* ---------- 10. Contact panel: off-screen shadow was bleeding onto the page edge ---------- */
+.contact-dock:not(.open) { box-shadow: none; visibility: hidden; transition: transform 0.35s var(--ease), visibility 0s linear 0.35s, box-shadow 0.2s; }
+.contact-dock.open { visibility: visible; transition: transform 0.35s var(--ease), visibility 0s; }
+
+/* ---------- 11. Dark theme: tiles that stayed light-pastel on dark cards ---------- */
+[data-theme="dark"] .entertainment-t { background: #174f45; color: #7ee8c9; }
+[data-theme="dark"] .health-t { background: #17406b; color: #8ec8ff; }
+[data-theme="dark"] .others-t { background: #3a2468; color: #cdb4ff; }
+[data-theme="dark"] .panel, [data-theme="dark"] .settings-tile { border-color: var(--edge); }
+[data-theme="dark"] .sidebar { box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.05); }
+
+/* ---------- 12. Entrance motion (first paint only; JS removes .pm-intro after ~1.6 s) ---------- */
+@keyframes pmRise { from { opacity: 0; transform: translateY(10px); } }
+@keyframes pmGrowX { from { transform: scaleX(0); } }
+@keyframes pmGrowY { from { transform: scaleY(0); } }
+@keyframes pmDraw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes pmPop { from { opacity: 0; transform: scale(0.4); } }
+html.pm-intro .welcome, html.pm-intro .page-intro, html.pm-intro .health { animation: pmRise 0.5s var(--ease) backwards; }
+html.pm-intro .summary-card, html.pm-intro .summary-cards > *, html.pm-intro .panel { animation: pmRise 0.55s var(--ease) backwards; }
+html.pm-intro .summary > :nth-child(2), html.pm-intro .summary-cards > :nth-child(2) { animation-delay: 0.05s; }
+html.pm-intro .summary > :nth-child(3), html.pm-intro .summary-cards > :nth-child(3) { animation-delay: 0.1s; }
+html.pm-intro .summary > :nth-child(4), html.pm-intro .summary-cards > :nth-child(4) { animation-delay: 0.15s; }
+html.pm-intro .row > :nth-child(2) { animation-delay: 0.06s; }
+html.pm-intro .row > :nth-child(3) { animation-delay: 0.12s; }
+html.pm-intro .progress-fill, html.pm-intro .health-fill, html.pm-intro .bar-fill, html.pm-intro #budgetFill { transform-origin: left center; animation: pmGrowX 0.9s var(--ease) 0.25s backwards; }
+html.pm-intro .report-bar-income, html.pm-intro .report-bar-expense { animation: pmGrowY 0.8s var(--ease) 0.25s backwards; }
+html.pm-intro .report-line { stroke-dasharray: 1; stroke-dashoffset: 0; animation: pmDraw 1.2s ease 0.2s backwards; }
+html.pm-intro .report-point { animation: pmPop 0.4s var(--ease) 1s backwards; }
+
+/* ---------- 13. Touch + motion preferences ---------- */
+@media (pointer: coarse) {
+  .table-action, .remove-item, .category-manager-list button { width: 40px; height: 40px; }
+  .switch i { width: 44px; height: 26px; } .switch i:after { width: 20px; height: 20px; } .switch input:checked + i:after { transform: translateX(18px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; animation-delay: 0s !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+/* ---------- 14. Late refinements from visual review ---------- */
+.settings-select { border-color: var(--edge); }
+#billsList .goal-manager-item, #friendsList .goal-manager-item { display: flex; align-items: center; min-height: 54px; }
+#billsList .goal-manager-title, #friendsList .goal-manager-title { flex: 1; margin: 0; }
+
+/* ---------- 15. Auth + marketing pages ---------- */
+.auth-page .field input { border-color: #d3ccea; }
+[data-theme="dark"] .auth-page .field input { border-color: #4a4660; }
+.auth-page .submit-button { box-shadow: 0 8px 20px rgba(108, 78, 246, 0.3); }
+.auth-page .submit-button:hover { box-shadow: 0 12px 26px rgba(108, 78, 246, 0.42); transform: translateY(-1px); }
+.auth-page .submit-button:active { transform: scale(0.99); box-shadow: none; }
+.auth-page .submit-button[disabled] { opacity: 0.7; cursor: progress; }
+.demo-credentials { border: 1px dashed var(--edge-strong); border-radius: 10px; }
+.demo-credentials a { color: var(--primary); font-weight: 700; text-decoration: none; border-bottom: 1px dashed currentColor; cursor: pointer; }
+.demo-credentials a:hover { border-bottom-style: solid; }
+.back-link, .switch-auth a, .field-heading a { transition: color 0.2s, transform 0.2s var(--ease); }
+.back-link:hover { transform: translateX(-2px); }
+
+.feature-card, .info-card, .action-card, .team-card, .contact-panel, .spending-card { border: 1px solid var(--edge); box-shadow: var(--lift); transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease), border-color 0.25s; }
+.feature-card:hover, .info-card:hover, .action-card:hover, .team-card:hover { border-color: var(--edge-strong); box-shadow: var(--lift-hover); }
+.contact-channel { border-color: var(--edge); transition: transform 0.2s var(--ease), box-shadow 0.2s, border-color 0.2s; }
+.contact-channel:hover { transform: translateY(-2px); border-color: var(--edge-strong); box-shadow: var(--lift); }
+.hero-content .btn { margin-top: 18px; }
+.btn, .cta-btn, .signin, .signup { transition: transform 0.18s var(--ease), box-shadow 0.22s, background-color 0.2s, color 0.2s, border-color 0.2s; }
+.btn:hover, .cta-btn:hover, .signin:hover, .signup:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(108, 78, 246, 0.3); }
+.btn:active, .cta-btn:active, .signin:active, .signup:active { transform: scale(0.98); box-shadow: none; }
+.top-nav a, .footer-links a, .footer-contact a { transition: color 0.2s, transform 0.2s var(--ease); }
+.footer-links a:hover { transform: translateX(3px); }
+.bottom-nav a { transition: color 0.2s, transform 0.2s var(--ease); }
+.bottom-nav a:active { transform: scale(0.94); }
+.team-card .member-avatar, .social-links a { transition: transform 0.22s var(--ease), box-shadow 0.22s; }
+.team-card:hover .member-avatar { transform: scale(1.06); box-shadow: var(--lift); }
+.social-links a:hover { transform: translateY(-2px); }
+[data-theme="dark"] .feature-card, [data-theme="dark"] .info-card, [data-theme="dark"] .action-card, [data-theme="dark"] .team-card,
+[data-theme="dark"] .contact-panel, [data-theme="dark"] .spending-card { border-color: #34324a; }
+
+/* ---------- 16. Dark: pale icon tile with a white glyph (Log out) was unreadable ---------- */
+[data-theme="dark"] .settings-icon.red-icon { background: #612544; color: #ff9db8; }
+
+/* ---------- 17. Phones: stop sideways scrolling (grid children could not shrink below their content) ---------- */
+@media (max-width: 760px) {
+  .health { min-width: 0; width: 100%; max-width: 100%; }
+  .expense-lower-grid > *, .expense-top-grid > *, .goals-pools-below > *, .settings-layout > *, .reports-chart-grid > *, .row > * { min-width: 0; max-width: 100%; }
+  .table-wrap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .settings-column, .settings-group, .settings-tile { min-width: 0; max-width: 100%; }
+}
+
+/* ---------- 18. Split tracker on narrow screens ---------- */
+.owe-row .who { flex: 1 1 96px; min-width: 96px; }
+.owe-row > b { white-space: nowrap; }
+@media (max-width: 520px) {
+  .owe-row { flex-wrap: wrap; row-gap: 8px; }
+  .owe-row .switch { margin-left: auto; }
+  .split-tracker .panel-header { flex-wrap: wrap; row-gap: 12px; }
+  .tracker-head-stats { width: 100%; }
+  .tracker-chip { flex: 1 1 90px; min-width: 0; }
+}
+
+/* ==========================================================================
+   16. CONTRAST + BUTTON PASS (v1.3)
+   Same palette, same hues. Changes: deeper page tone so white cards lift off it,
+   firmer card edges + shadows, inner cards that are visibly a different surface
+   from the card holding them, darker secondary text, tabular numbers,
+   and real buttons in place of "add" text links.
+   ========================================================================== */
+:root {
+  --bg: #e4daf9;               /* was #f4f1ff: same lavender, deeper, so white panels separate */
+  --panel-alt: #f0e9ff;        /* inner cards: tinted, not near-white */
+  --track: #ddd2fa;            /* progress rails + soft fills */
+  --text: #1a1030;
+  --muted: #52476b;            /* was #706585 */
+  --light: #6a5f84;            /* was #9c91b1 (failed AA on white) */
+  --edge: #bba8ec;
+  --edge-strong: #9a82e0;
+  --card-edge: 1.5px solid #b9a6ea;
+  --inner-edge: 1.5px solid #c3b2ee;
+  --card-shadow: 0 1px 2px rgba(52, 26, 120, 0.14), 0 6px 14px rgba(52, 26, 120, 0.12), 0 18px 36px rgba(52, 26, 120, 0.12);
+  --inner-shadow: 0 1px 2px rgba(52, 26, 120, 0.12), 0 4px 10px rgba(52, 26, 120, 0.08);
+  --ok-ink: #0b6b4e;
+  --warn-ink: #7a4d00;
+  --bad-ink: #b0213f;
+}
+[data-theme="dark"] {
+  --bg: #07020f;
+  --panel: #2a1650;
+  --panel-alt: #38206b;
+  --track: #4b2f82;
+  --text: #ffffff;
+  --muted: #dacfee;
+  --light: #c4b4de;
+  --edge: #7a56bd;
+  --edge-strong: #a07de0;
+  --card-edge: 1.5px solid #7a56bd;
+  --inner-edge: 1.5px solid #8a66cc;
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.5), 0 14px 32px rgba(0, 0, 0, 0.55);
+  --inner-shadow: 0 1px 3px rgba(0, 0, 0, 0.45), 0 4px 10px rgba(0, 0, 0, 0.3);
+  --ok-ink: #7bf5cf;
+  --warn-ink: #ffd985;
+  --bad-ink: #ffa6c0;
+}
+
+/* ---- 16a. Outer cards ---- */
+.panel, .profile-panel, .settings-tile, .page-intro, .data-card {
+  border: var(--card-edge);
+  box-shadow: var(--card-shadow);
+}
+.panel:hover, .profile-panel:hover { box-shadow: var(--card-shadow); }
+.summary-card {
+  border: 1.5px solid rgba(40, 20, 90, 0.38);
+  box-shadow: var(--card-shadow);
+}
+.summary-card p { color: #1d1330; }
+.summary-card small { color: #1d1330; }
+[data-theme="dark"] .summary-card { border-color: rgba(255, 255, 255, 0.35); }
+
+/* ---- 16b. Inner cards: a different surface from the card around them ---- */
+.goal, .pool, .bill, .goal-manager-item, .pool-manager-item, .category-manager-list > div,
+.history-row, .split-card, .tracker-chip, .owe-row, .factor-card, .expense-kpis > span,
+.category, .transaction {
+  background: var(--panel-alt);
+  border: var(--inner-edge);
+  box-shadow: var(--inner-shadow);
+}
+.friend { border: 1.5px solid currentColor; box-shadow: var(--inner-shadow); }
+.friend.rahul { background: #cfe6ff; }
+.friend.aman  { background: #ffd3e3; }
+.friend.priya { background: #c8f0dd; }
+[data-theme="dark"] .friend.rahul { background: #1d3f68; color: #b9dcff; }
+[data-theme="dark"] .friend.aman  { background: #5a1f45; color: #ffc4da; }
+[data-theme="dark"] .friend.priya { background: #17504a; color: #a8f2d6; }
+.goal:hover, .bill:hover, .pool:hover, .goal-manager-item:hover, .pool-manager-item:hover,
+.history-row:hover, .split-card:hover, .tracker-chip:hover, .category-manager-list > div:hover {
+  border-color: var(--edge-strong); box-shadow: var(--card-shadow);
+}
+.transaction { margin-bottom: 8px; padding: 10px 12px; border-radius: 14px; }
+.transaction:last-child { margin-bottom: 0; }
+
+/* nested rows inside an already-tinted card step back to white so there are always 2 clear tones */
+.split-card .owe-row, .goal-manager-item .progress-track { background-color: var(--panel); }
+[data-theme="dark"] .split-card .owe-row { background-color: var(--panel); }
+
+/* ---- 16c. Tables ---- */
+.table-wrap { border: var(--card-edge); background: var(--panel); box-shadow: var(--inner-shadow); }
+.table-wrap thead th { background: var(--panel-alt); color: var(--text); border-bottom: 2px solid var(--edge); }
+.table-wrap tbody tr { border-bottom: 1px solid var(--edge); }
+.table-wrap tbody tr:nth-child(even) { background: color-mix(in srgb, var(--panel-alt) 55%, transparent); }
+.table-wrap tbody tr:hover { background: var(--track); }
+
+/* ---- 16d. Progress rails: obvious track, bold fill ---- */
+.progress-track, .health-track, .budget-track, .bar-track {
+  background: var(--track); box-shadow: var(--inset), 0 0 0 1.5px var(--edge-strong);
+}
+
+/* ---- 16e. Text: numbers first ---- */
+.summary-card h2, .amount, .transaction-head strong, .goal-manager-title b, .pool-manager-title b,
+.bill b, .friend b, .tracker-chip b, .history-row b, .legend-line b, .donut-center strong,
+.table-wrap td, .report-number, [class*="amount"] {
+  font-variant-numeric: tabular-nums;
+}
+.amount, .bill b, .tracker-chip b, .legend-line b, .history-row b { font-weight: 800; color: var(--text); }
+.amount span, .legend-line em, .transaction-head small, .bill small, .friend small, .sub, .panel-subtitle,
+.goal-manager-item small, .history-row small, .tracker-sub small { color: var(--muted); }
+.goal-manager-title b, .pool-manager-title b { font-size: calc(12px * var(--text-scale, 1)); color: var(--primary); font-weight: 800; }
+[data-theme="dark"] .goal-manager-title b, [data-theme="dark"] .pool-manager-title b { color: #d9c3ff; }
+.friend small, .bill small, .legend-line em { font-size: calc(12px * var(--text-scale, 1)); }
+.bill strong, .goal-title { font-size: calc(13.5px * var(--text-scale, 1)); }
+.goal-top .percent, .percent { color: var(--primary); font-weight: 800; }
+[data-theme="dark"] .percent { color: #d9c3ff; }
+.due { color: var(--bad-ink); font-weight: 700; }
+.auto { color: var(--primary); font-weight: 700; }
+[data-theme="dark"] .auto { color: #d9c3ff; }
+.transaction-head small { font-size: calc(12px * var(--text-scale, 1)); }
+
+/* ---- 16f. Form controls ---- */
+.field input, .field select, .field textarea, .settings-form input, .settings-form select, .settings-form textarea,
+.history-tools input, .history-tools select, .participant-editor input, .input-prefix, .time-filter {
+  border: 1.5px solid var(--edge-strong); background-color: var(--panel);
+}
+[data-theme="dark"] .field input, [data-theme="dark"] .field select, [data-theme="dark"] .field textarea,
+[data-theme="dark"] .history-tools input, [data-theme="dark"] .history-tools select,
+[data-theme="dark"] .participant-editor input, [data-theme="dark"] .input-prefix, [data-theme="dark"] .time-filter {
+  background-color: #1a0d36;
+}
+.input-prefix input { border: 0; box-shadow: none; background: transparent; }
+
+/* ---- 16g. Real buttons instead of "add" text links ---- */
+.pm-btn, .add-inline-button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  min-height: 36px; padding: 8px 16px; border-radius: 12px; border: 1.5px solid transparent;
+  font: inherit; font-size: calc(13px * var(--text-scale, 1)); font-weight: 800; line-height: 1.2;
+  text-decoration: none; white-space: nowrap; cursor: pointer;
+}
+.pm-btn-sm { min-height: 32px; padding: 6px 13px; font-size: calc(12.5px * var(--text-scale, 1)); border-radius: 10px; }
+.pm-btn-primary, .add-inline-button {
+  color: #fff; background: linear-gradient(135deg, var(--primary), var(--primary2));
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 1px 2px rgba(52, 26, 120, 0.3), 0 6px 14px rgba(108, 78, 246, 0.35);
+}
+.pm-btn-primary:hover, .add-inline-button:hover {
+  color: #fff; background: linear-gradient(135deg, var(--primary), var(--primary2)); filter: brightness(1.07);
+  transform: translateY(-1px); box-shadow: 0 1px 2px rgba(52, 26, 120, 0.3), 0 10px 22px rgba(108, 78, 246, 0.45);
+}
+.pm-btn-primary:active, .add-inline-button:active { transform: translateY(0) scale(0.98); box-shadow: none; }
+.pm-btn-ghost, .panel-head a:not(.pm-btn) {
+  color: var(--primary); background: var(--panel); border: 1.5px solid var(--edge-strong); box-shadow: var(--inner-shadow);
+}
+.pm-btn-ghost:hover { color: #fff; background: var(--primary); border-color: var(--primary); transform: translateY(-1px); }
+[data-theme="dark"] .pm-btn-ghost { color: #e2d2ff; background: #35206a; }
+[data-theme="dark"] .pm-btn-ghost:hover { color: #fff; background: var(--primary); }
+.pm-btn:focus-visible, .add-inline-button:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+.add-inline-button i { font-size: 1.05em; }
+.pm-empty { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 14px; border: 1.5px dashed var(--edge-strong); border-radius: 14px; background: var(--panel-alt); }
+.pm-empty p { margin: 0; color: var(--muted); font-weight: 600; }
+.panel-head > span { display: inline-flex; align-items: center; gap: 8px; }
+
+/* existing outline buttons ("View Details", "Set Budget") */
+.outline { border: 1.5px solid var(--primary); background: var(--panel); font-weight: 800; box-shadow: var(--inner-shadow); }
+[data-theme="dark"] .outline { color: #e2d2ff; background: #35206a; border-color: #a07de0; }
+
+/* icon buttons on goals / pools / bills: visible, not floating glyphs */
+.remove-item, .table-action, .category-manager-list button {
+  border: 1.5px solid var(--edge-strong); background: var(--panel); box-shadow: var(--inner-shadow);
+}
+.remove-item[data-act="add"] { color: #fff; background: var(--primary); border-color: var(--primary); }
+.remove-item[data-act="add"]:hover { color: #fff; background: var(--primary2); }
+.remove-item[data-act="pay"] { background: var(--panel); border-color: var(--ok-ink); }
+.remove-item[data-act="del"] { color: var(--bad-ink); }
+
+/* ---- 16h. Fixes from visual review ---- */
+.panel-head a.pm-btn-primary, .panel-head a.pm-btn-primary:hover { color: #fff; background: linear-gradient(135deg, var(--primary), var(--primary2)); border-color: rgba(255, 255, 255, 0.22); }
+.panel-head a.pm-btn-ghost:hover { color: #fff; background: var(--primary); border-color: var(--primary); }
+.category { padding: 14px 6px 12px; border-radius: 16px; }
+.hint, .goal small.hint { color: #8a4f00; font-weight: 700; }
+[data-theme="dark"] .hint, [data-theme="dark"] .goal small.hint { color: #ffd985; }
+.up { color: #0b6b4e; } .down { color: #b0213f; }
+.summary-card small.up, .summary-card small.down { color: #1d1330; }
+
+.goal-manager-title b.bal-pos { color: var(--ok-ink); }
+.goal-manager-title b.bal-neg { color: var(--bad-ink); }
+.app .btn-soft, .app-body .btn-soft, .btn-soft {
+  color: #4a2fc4; background: #e4d9ff; border: 1.5px solid var(--edge-strong); box-shadow: var(--inner-shadow);
+}
+.app .btn-soft:hover, .app-body .btn-soft:hover { color: #fff; background: var(--primary); border-color: var(--primary); }
+[data-theme="dark"] .btn-soft { color: #eadfff; background: #46298a; }
+[data-theme="dark"] .panel-head b, [data-theme="dark"] .panel-header b, [data-theme="dark"] .panel-head > b { color: #d9c3ff; }
+.panel-head b, .panel-header b { color: var(--primary); }

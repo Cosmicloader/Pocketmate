@@ -4,6 +4,7 @@
 
 /* --- 1. GLOBAL VARIABLES --- */
 :root {
+  --text-scale: 1;
   /* Marketing & Loading */
   --bg-color: #f8f8fe;
   --text-main: #222222;
@@ -197,7 +198,7 @@ body.app-body,
   font-family: Arial, Helvetica, sans-serif;
   background: var(--bg);
   color: var(--text);
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale, 1));
   line-height: 1.5;
   padding-bottom: 0;
   min-height: 100vh;
@@ -260,7 +261,7 @@ header .logo img {
   transition: 0.3s ease;
 }
 header .logo-text h2 {
-  font-size: 22px;
+  font-size: calc(22px * var(--text-scale, 1));
   color: var(--primary);
   margin: 0;
 }
@@ -280,7 +281,7 @@ header .logo:hover img {
 .top-nav a {
   text-decoration: none;
   color: var(--text-main);
-  font-size: 17px;
+  font-size: calc(17px * var(--text-scale, 1));
   font-weight: 600;
   position: relative;
   transition: 0.3s;
@@ -366,11 +367,11 @@ header .logo:hover img {
   border-radius: 12px;
 }
 .bottom-nav .icon {
-  font-size: 24px;
+  font-size: calc(24px * var(--text-scale, 1));
   transition: 0.3s;
 }
 .bottom-nav span:last-child {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   margin-top: 4px;
   font-weight: 600;
 }
@@ -415,7 +416,7 @@ header .logo:hover img {
   box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 .theme-switch .slider i {
-  font-size: 16px;
+  font-size: calc(16px * var(--text-scale, 1));
   z-index: 1;
 }
 .theme-switch .slider .ph-moon {
@@ -519,12 +520,12 @@ header ~ main .tagline {
   color: var(--primary);
   padding: 10px 18px;
   border-radius: 25px;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   font-weight: bold;
 }
 .hero h1 {
   margin: 20px 0;
-  font-size: 38px;
+  font-size: calc(38px * var(--text-scale, 1));
   line-height: 1.25;
 }
 .hero p {
@@ -551,7 +552,7 @@ header ~ main .tagline {
   text-align: center;
 }
 .features h2 {
-  font-size: 30px;
+  font-size: calc(30px * var(--text-scale, 1));
   margin-bottom: 10px;
 }
 .feature-text {
@@ -577,7 +578,7 @@ header ~ main .tagline {
   border: 1px solid var(--glass-border);
 }
 .feature-card .icon {
-  font-size: 40px;
+  font-size: calc(40px * var(--text-scale, 1));
   margin-bottom: 15px;
   color: var(--primary);
 }
@@ -600,7 +601,7 @@ header ~ main .btn {
   border: 0;
   border-radius: var(--radius-md);
   font-family: inherit;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s ease;
@@ -622,7 +623,7 @@ header ~ main .btn:hover {
   padding: 14px 22px;
   border-radius: var(--radius-md);
   font-family: inherit;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
   font-weight: 800;
   cursor: pointer;
   transition: 0.3s ease;
@@ -646,17 +647,17 @@ header ~ main .btn:hover {
   text-align: center;
 }
 .cta-icon {
-  font-size: 34px;
+  font-size: calc(34px * var(--text-scale, 1));
 }
 .cta h2 {
   color: #fff;
-  font-size: 30px;
+  font-size: calc(30px * var(--text-scale, 1));
   line-height: 1.25;
   margin-bottom: 15px;
 }
 .cta p {
   color: #eee;
-  font-size: 16px;
+  font-size: calc(16px * var(--text-scale, 1));
   line-height: 1.6;
   margin-bottom: 30px;
   max-width: 600px;
@@ -677,7 +678,7 @@ header ~ main .btn:hover {
   border-radius: var(--radius-md);
   font-weight: bold;
   transition: 0.3s ease;
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale, 1));
 }
 .cta-btn:hover,
 .cta .btn:hover {
@@ -693,7 +694,7 @@ header ~ main .btn:hover {
 .status-message {
   min-height: 18px;
   color: var(--green);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   font-weight: 700;
 }
 
@@ -821,7 +822,7 @@ header ~ main .btn:hover {
   z-index: 4;
 }
 .spending-card h3 {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   margin-bottom: 9px;
 }
 .spending-row {
@@ -853,7 +854,7 @@ header ~ main .btn:hover {
   display: flex;
   flex-direction: column;
   gap: 3px;
-  font-size: 8px;
+  font-size: calc(8px * var(--text-scale, 1));
   color: var(--text-muted);
 }
 .hero-visual .legend span:before {
@@ -884,7 +885,7 @@ header ~ main .btn:hover {
   align-items: center;
   gap: 5px;
   color: var(--primary);
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
   font-weight: 800;
 }
 .info-grid {
@@ -917,19 +918,19 @@ header ~ main .btn:hover {
   border-radius: 13px;
   color: var(--primary);
   background: var(--tagline-bg);
-  font-size: 23px;
+  font-size: calc(23px * var(--text-scale, 1));
 }
 .info-icon.pink {
   color: var(--pink);
   background: rgba(244, 127, 148, 0.14);
 }
 .info-card h2 {
-  font-size: 21px;
+  font-size: calc(21px * var(--text-scale, 1));
   margin-bottom: 10px;
 }
 .info-card p {
   color: var(--text-muted);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   line-height: 1.7;
   margin-top: 10px;
 }
@@ -948,10 +949,10 @@ header ~ main .btn:hover {
   border-radius: 12px;
   color: var(--primary);
   background: var(--tagline-bg);
-  font-size: 22px;
+  font-size: calc(22px * var(--text-scale, 1));
 }
 .section-title h2 {
-  font-size: 26px;
+  font-size: calc(26px * var(--text-scale, 1));
 }
 .team-tech {
   display: grid;
@@ -988,7 +989,7 @@ header ~ main .btn:hover {
   border-radius: 50%;
   color: #fff;
   background: linear-gradient(135deg, var(--primary), #b13fee);
-  font-size: 21px;
+  font-size: calc(21px * var(--text-scale, 1));
   font-weight: 800;
 }
 .member-avatar.pink {
@@ -1008,22 +1009,22 @@ header ~ main .btn:hover {
   background: #fff0bf;
   border-radius: 12px;
   padding: 4px 7px;
-  font-size: 8px;
+  font-size: calc(8px * var(--text-scale, 1));
   font-weight: 800;
 }
 .team-card h3 {
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale, 1));
 }
 .role {
   display: block;
   margin: 4px 0 9px;
   color: var(--primary);
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
   font-weight: 800;
 }
 .team-card p {
   color: var(--text-muted);
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
   line-height: 1.5;
 }
 .social-links {
@@ -1041,7 +1042,7 @@ header ~ main .btn:hover {
   border-radius: 8px;
   color: var(--primary);
   background: var(--tagline-bg);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   text-decoration: none;
   transition: 0.2s;
 }
@@ -1077,7 +1078,7 @@ header ~ main .btn:hover {
   border-radius: 10px;
   color: #fff;
   background: var(--primary);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   font-weight: 900;
 }
 .tech-logo.orange {
@@ -1098,11 +1099,11 @@ header ~ main .btn:hover {
 }
 .tech-item strong {
   display: block;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .tech-item small {
   color: var(--text-muted);
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
 }
 
 /* Contact Page Specifics */
@@ -1117,7 +1118,7 @@ header ~ main .btn:hover {
 }
 .contact-hero h1 {
   margin: 18px 0 12px;
-  font-size: 38px;
+  font-size: calc(38px * var(--text-scale, 1));
   line-height: 1.25;
 }
 .contact-hero p {
@@ -1151,12 +1152,12 @@ header ~ main .btn:hover {
   box-shadow: var(--shadow);
 }
 .contact-panel h2 {
-  font-size: 20px;
+  font-size: calc(20px * var(--text-scale, 1));
   margin-bottom: 2px;
 }
 .contact-panel > p {
   color: var(--text-muted);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   line-height: 1.6;
 }
 .contact-channel-list {
@@ -1189,7 +1190,7 @@ header ~ main .btn:hover {
   border-radius: 10px;
   color: var(--primary);
   background: var(--tagline-bg);
-  font-size: 19px;
+  font-size: calc(19px * var(--text-scale, 1));
 }
 .contact-channel span:nth-child(2) {
   display: flex;
@@ -1198,15 +1199,15 @@ header ~ main .btn:hover {
   gap: 2px;
 }
 .contact-channel strong {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .contact-channel small {
   color: var(--text-muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .contact-channel > i {
   color: var(--primary);
-  font-size: 16px;
+  font-size: calc(16px * var(--text-scale, 1));
 }
 .contact-form {
   display: flex;
@@ -1218,7 +1219,7 @@ header ~ main .btn:hover {
   flex-direction: column;
   gap: 7px;
   color: var(--text-muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   font-weight: 700;
 }
 .contact-form input,
@@ -1232,7 +1233,7 @@ header ~ main .btn:hover {
   color: var(--text-main);
   background: var(--panel-alt);
   font: inherit;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   transition: 0.2s;
 }
 .contact-form input:focus,
@@ -1252,12 +1253,12 @@ header ~ main .btn:hover {
   gap: 8px;
   margin-top: 20px;
   color: var(--text-muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   text-align: center;
 }
 .contact-note i {
   color: var(--primary);
-  font-size: 16px;
+  font-size: calc(16px * var(--text-scale, 1));
 }
 
 /* --- 5. AUTH PAGES (Signin, Signup) --- */
@@ -1293,7 +1294,7 @@ header ~ main .btn:hover {
 }
 .auth-page .brand {
   color: #fff;
-  font-size: 25px;
+  font-size: calc(25px * var(--text-scale, 1));
 }
 .auth-page .brand img {
   width: 44px;
@@ -1303,7 +1304,7 @@ header ~ main .btn:hover {
 }
 .mobile-brand {
   color: var(--auth-purple);
-  font-size: 25px;
+  font-size: calc(25px * var(--text-scale, 1));
   margin-bottom: 42px;
 }
 .mobile-brand img {
@@ -1327,7 +1328,7 @@ header ~ main .btn:hover {
   background: rgba(255, 255, 255, 0.16);
   border: 1px solid rgba(255, 255, 255, 0.28);
   color: #fff09a;
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   font-weight: 700;
   letter-spacing: 1.5px;
   line-height: 1.3;
@@ -1335,21 +1336,21 @@ header ~ main .btn:hover {
 }
 .auth-shell .intro-copy h1 {
   margin: 24px 0 20px;
-  font-size: clamp(38px, 4vw, 60px);
+  font-size: calc(clamp(38px, 4vw, 60px) * var(--text-scale, 1));
   line-height: 1.06;
   letter-spacing: -1.5px;
 }
 .auth-shell .intro-copy p {
   max-width: 380px;
   color: #ece9ff;
-  font-size: 17px;
+  font-size: calc(17px * var(--text-scale, 1));
   line-height: 1.7;
 }
 .intro-note {
   position: relative;
   z-index: 1;
   color: #ded9ff;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .auth-panel {
   display: flex;
@@ -1364,19 +1365,19 @@ header ~ main .btn:hover {
 }
 .form-kicker {
   color: var(--auth-purple);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   font-weight: 700;
   letter-spacing: 1.8px;
 }
 .form-wrap h2 {
   margin-top: 12px;
-  font-size: 33px;
+  font-size: calc(33px * var(--text-scale, 1));
   letter-spacing: -0.7px;
 }
 .form-subtitle {
   margin: 10px 0 34px;
   color: var(--auth-muted);
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale, 1));
 }
 .field {
   margin-bottom: 22px;
@@ -1386,7 +1387,7 @@ header ~ main .btn:hover {
   display: block;
   margin-bottom: 9px;
   color: var(--auth-ink);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   font-weight: 700;
 }
 .field-heading {
@@ -1425,7 +1426,7 @@ header ~ main .btn:hover {
   gap: 9px;
   margin: -1px 0 27px;
   color: var(--auth-muted);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   line-height: 1.5;
 }
 .checkbox-label.terms-label {
@@ -1456,19 +1457,19 @@ header ~ main .btn:hover {
 }
 .submit-button span {
   margin-left: 8px;
-  font-size: 19px;
+  font-size: calc(19px * var(--text-scale, 1));
 }
 .switch-auth {
   margin-top: 27px;
   color: var(--auth-muted);
   text-align: center;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
 }
 .back-link {
   display: block;
   margin-top: 42px;
   color: var(--auth-muted);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   text-align: center;
   text-decoration: none;
 }
@@ -1479,7 +1480,7 @@ header ~ main .btn:hover {
 .demo-credentials {
   margin-bottom: 22px;
   color: var(--auth-muted);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   background: rgba(108, 78, 246, 0.05);
   padding: 10px;
   border-radius: 6px;
@@ -1535,7 +1536,7 @@ header ~ main .btn:hover {
 .site-name {
   margin-bottom: 24px;
   color: var(--primary);
-  font-size: 28px;
+  font-size: calc(28px * var(--text-scale, 1));
   font-weight: 700;
   letter-spacing: -0.5px;
 }
@@ -1565,7 +1566,7 @@ header ~ main .btn:hover {
 .loading-text {
   margin-top: 14px;
   color: var(--text-muted);
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
   font-weight: 500;
 }
 
@@ -1650,7 +1651,7 @@ header ~ main .btn:hover {
 }
 .sidebar .logo h2 {
   color: #fff;
-  font-size: 20px;
+  font-size: calc(20px * var(--text-scale, 1));
 }
 
 .navigation {
@@ -1668,7 +1669,7 @@ header ~ main .btn:hover {
   border-radius: 14px;
   color: #c8b7e5;
   text-decoration: none;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
   font-weight: 600;
   transition: 0.2s;
 }
@@ -1685,7 +1686,7 @@ header ~ main .btn:hover {
 .nav-icon {
   width: 23px;
   text-align: center;
-  font-size: 19px;
+  font-size: calc(19px * var(--text-scale, 1));
 }
 .logout {
   margin-top: auto;
@@ -1721,11 +1722,11 @@ header ~ main .btn:hover {
 }
 .panel-head h3,
 .panel-header h3 {
-  font-size: 17px;
+  font-size: calc(17px * var(--text-scale, 1));
 }
 .panel-head a {
   color: var(--primary);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   font-weight: 700;
   text-decoration: none;
 }
@@ -1734,14 +1735,14 @@ header ~ main .btn:hover {
   display: block;
   margin-top: 4px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .app .btn-primary,
 .app-body .btn-primary {
   border: 0;
   border-radius: 11px;
   padding: 12px 16px;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   font-weight: 800;
   cursor: pointer;
   transition: 0.22s;
@@ -1759,7 +1760,7 @@ header ~ main .btn:hover {
   border: 0;
   border-radius: 11px;
   padding: 12px 16px;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   font-weight: 800;
   cursor: pointer;
   transition: 0.22s;
@@ -1781,7 +1782,7 @@ header ~ main .btn:hover {
   border: 1px solid var(--primary);
   border-radius: 10px;
   color: var(--primary);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   font-weight: 700;
   text-decoration: none;
   transition:
@@ -1801,7 +1802,7 @@ header ~ main .btn:hover {
 }
 .eyebrow-app {
   color: var(--primary);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   font-weight: 800;
   letter-spacing: 1.5px;
 }
@@ -1814,12 +1815,12 @@ header ~ main .btn:hover {
   gap: 20px;
 }
 .welcome h1 {
-  font-size: 26px;
+  font-size: calc(26px * var(--text-scale, 1));
 }
 .welcome p {
   margin-top: 5px;
   color: var(--muted);
-  font-size: 15px;
+  font-size: calc(15px * var(--text-scale, 1));
 }
 .health {
   min-width: 300px;
@@ -1840,13 +1841,13 @@ header ~ main .btn:hover {
   align-items: center;
   gap: 7px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   font-weight: 700;
   text-transform: uppercase;
 }
 .health-title i {
   color: var(--primary);
-  font-size: 19px;
+  font-size: calc(19px * var(--text-scale, 1));
 }
 .score {
   display: grid;
@@ -1857,12 +1858,12 @@ header ~ main .btn:hover {
 }
 .score strong {
   color: var(--mint);
-  font-size: 22px;
+  font-size: calc(22px * var(--text-scale, 1));
   line-height: 1;
 }
 .score span {
   color: var(--light);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   line-height: 1;
 }
 .optimal {
@@ -1870,7 +1871,7 @@ header ~ main .btn:hover {
   border-radius: 8px;
   color: #166d59;
   background: #9ef0d7;
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   font-weight: 800;
   line-height: 1;
 }
@@ -1930,21 +1931,21 @@ header ~ main .btn:hover {
   align-items: center;
   justify-content: center;
   border-radius: 14px;
-  font-size: 23px;
+  font-size: calc(23px * var(--text-scale, 1));
   background: #fff3;
 }
 .summary-card p {
   color: #2d2046;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
   font-weight: 700;
 }
 .summary-card h2 {
   margin: 2px 0;
   color: #201631;
-  font-size: 22px;
+  font-size: calc(22px * var(--text-scale, 1));
 }
 .summary-card small {
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   font-weight: 700;
 }
 .up,
@@ -2008,11 +2009,11 @@ header ~ main .btn:hover {
   background: var(--panel);
 }
 .app .donut-center strong {
-  font-size: 18px;
+  font-size: calc(18px * var(--text-scale, 1));
 }
 .app .donut-center span {
   color: var(--light);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .app .legend {
   display: flex;
@@ -2026,17 +2027,17 @@ header ~ main .btn:hover {
   align-items: center;
   gap: 8px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .app .legend-line b {
   color: var(--text);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   text-align: right;
 }
 .app .legend-line em {
   display: block;
   color: var(--light);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   font-style: normal;
 }
 .dot {
@@ -2069,11 +2070,11 @@ header ~ main .btn:hover {
 }
 .budget-value {
   color: var(--muted);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .budget-value strong {
   color: var(--text);
-  font-size: 20px;
+  font-size: calc(20px * var(--text-scale, 1));
 }
 .progress-track {
   height: 11px;
@@ -2085,11 +2086,11 @@ header ~ main .btn:hover {
 }
 .budget-info {
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .budget-info strong {
   color: var(--text);
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
 }
 .budget-info b {
   color: var(--primary);
@@ -2099,7 +2100,7 @@ header ~ main .btn:hover {
   border-radius: 12px;
   color: #166d59;
   background: #9ef0d7;
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   font-weight: 700;
 }
 .goal {
@@ -2118,30 +2119,30 @@ header ~ main .btn:hover {
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .goal-title i,
 .pool-title i {
   color: var(--primary);
-  font-size: 18px;
+  font-size: calc(18px * var(--text-scale, 1));
 }
 .percent {
   color: var(--primary);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   font-weight: 800;
 }
 .amount {
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
   font-weight: 800;
 }
 .amount span {
   color: var(--light);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   font-weight: 600;
 }
 .hint {
   color: var(--peach);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .transactions {
   min-height: 500px;
@@ -2172,7 +2173,7 @@ header ~ main .btn:hover {
 .transaction-icon {
   width: 40px;
   height: 40px;
-  font-size: 20px;
+  font-size: calc(20px * var(--text-scale, 1));
 }
 .pink-bg {
   color: var(--tx-pizza);
@@ -2204,11 +2205,11 @@ header ~ main .btn:hover {
   justify-content: space-between;
 }
 .transaction-head strong {
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
 }
 .transaction-head small {
   color: var(--light);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .details {
   display: flex;
@@ -2228,7 +2229,7 @@ header ~ main .btn:hover {
   border-radius: 6px;
   color: var(--muted);
   background: var(--track);
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
 }
 .tag {
   color: var(--primary);
@@ -2238,7 +2239,7 @@ header ~ main .btn:hover {
   text-align: right;
 }
 .transaction-meta b {
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
 }
 .negative {
   color: var(--red);
@@ -2249,7 +2250,7 @@ header ~ main .btn:hover {
 .impact {
   display: block;
   margin-top: 3px;
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
 }
 .bills-pools {
   display: flex;
@@ -2276,13 +2277,13 @@ header ~ main .btn:hover {
   text-align: center;
 }
 .bill strong {
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .bill small {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .bill b {
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
 }
 .due {
   color: var(--red);
@@ -2337,10 +2338,10 @@ header ~ main .btn:hover {
   color: var(--friend-priya-text);
 }
 .friend strong {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .friend small {
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
 }
 .avatar {
   display: flex;
@@ -2350,7 +2351,7 @@ header ~ main .btn:hover {
   justify-content: center;
   border-radius: 50%;
   background: #fde5d4;
-  font-size: 21px;
+  font-size: calc(21px * var(--text-scale, 1));
 }
 .categories-panel {
   min-width: 0;
@@ -2373,7 +2374,7 @@ header ~ main .btn:hover {
   justify-content: center;
   margin: auto;
   border-radius: 17px;
-  font-size: 27px;
+  font-size: calc(27px * var(--text-scale, 1));
 }
 .category strong,
 .category b {
@@ -2382,10 +2383,10 @@ header ~ main .btn:hover {
 .category strong {
   margin-top: 8px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .category b {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .food-t {
   color: var(--tx-pizza);
@@ -2426,11 +2427,11 @@ header ~ main .btn:hover {
 }
 .page-intro h1 {
   margin: 7px 0;
-  font-size: 30px;
+  font-size: calc(30px * var(--text-scale, 1));
 }
 .page-intro p:not(.eyebrow-app) {
   color: var(--muted);
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
 }
 .expense-kpis {
   display: flex;
@@ -2449,14 +2450,14 @@ header ~ main .btn:hover {
 }
 .expense-kpis i {
   color: var(--green);
-  font-size: 19px;
+  font-size: calc(19px * var(--text-scale, 1));
 }
 .expense-kpis small {
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .expense-kpis strong {
-  font-size: 17px;
+  font-size: calc(17px * var(--text-scale, 1));
 }
 .panel-icon {
   display: flex;
@@ -2466,7 +2467,7 @@ header ~ main .btn:hover {
   justify-content: center;
   border-radius: 12px;
   color: #fff;
-  font-size: 19px;
+  font-size: calc(19px * var(--text-scale, 1));
 }
 .purple-icon {
   background: linear-gradient(135deg, #7545ee, #b13fee);
@@ -2499,7 +2500,7 @@ header ~ main .btn:hover {
   flex-direction: column;
   gap: 6px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   font-weight: 700;
 }
 .settings-form input,
@@ -2513,7 +2514,7 @@ header ~ main .btn:hover {
   outline: none;
   color: var(--text);
   background: var(--panel-alt);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .settings-form input:focus,
 .settings-form select:focus,
@@ -2543,11 +2544,11 @@ header ~ main .btn:hover {
   flex-direction: column;
   gap: 4px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .budget-display strong {
   color: var(--text);
-  font-size: 26px;
+  font-size: calc(26px * var(--text-scale, 1));
 }
 .budget-visual {
   display: flex;
@@ -2556,7 +2557,7 @@ header ~ main .btn:hover {
 }
 .budget-visual > b {
   color: var(--primary);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .budget-split {
   display: flex;
@@ -2566,12 +2567,12 @@ header ~ main .btn:hover {
   display: flex;
   flex-direction: column;
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .budget-split strong {
   margin-top: 4px;
   color: var(--text);
-  font-size: 18px;
+  font-size: calc(18px * var(--text-scale, 1));
 }
 .category-manager-list {
   display: flex;
@@ -2587,11 +2588,11 @@ header ~ main .btn:hover {
   border: 1px solid var(--border);
   border-radius: 11px;
   background: var(--panel-alt);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .category-manager-list > div > b {
   color: var(--primary);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .category-manager-list button,
 .table-action {
@@ -2612,7 +2613,7 @@ header ~ main .btn:hover {
   justify-content: center;
   border-radius: 9px;
   color: #fff;
-  font-size: 16px;
+  font-size: calc(16px * var(--text-scale, 1));
 }
 .food-bg {
   background: #f47f94;
@@ -2633,7 +2634,7 @@ header ~ main .btn:hover {
   border: 0;
   color: var(--primary);
   background: none;
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   font-weight: 800;
   cursor: pointer;
 }
@@ -2664,7 +2665,7 @@ header ~ main .btn:hover {
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   min-width: 650px;
 }
 th,
@@ -2676,7 +2677,7 @@ td {
 }
 th {
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   background: var(--panel-alt);
 }
 tbody tr:hover {
@@ -2694,7 +2695,7 @@ tbody tr:hover {
   padding: 4px 8px;
   border-radius: 7px;
   color: #fff;
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
   font-weight: 800;
 }
 .table-category.food {
@@ -2741,7 +2742,7 @@ tbody tr:hover {
   padding: 7px 9px;
   border-radius: 9px;
   background: var(--track);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .person-chip button {
   border: 0;
@@ -2761,7 +2762,7 @@ tbody tr:hover {
   color: var(--muted);
   background: var(--panel);
   cursor: pointer;
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   font-weight: 700;
 }
 .split-options button.active {
@@ -2775,7 +2776,7 @@ tbody tr:hover {
 .split-result-title {
   margin-bottom: 8px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .split-people {
   display: grid;
@@ -2789,11 +2790,11 @@ tbody tr:hover {
   padding: 8px;
   border-radius: 10px;
   background: var(--track);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .avatar-mini {
   font-style: normal;
-  font-size: 21px;
+  font-size: calc(21px * var(--text-scale, 1));
 }
 .split-person b {
   margin-left: auto;
@@ -2822,13 +2823,13 @@ tbody tr:hover {
   align-items: center;
   gap: 7px;
   margin-bottom: 8px;
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .goal-manager-title b,
 .pool-manager-title b {
   margin-left: auto;
   color: var(--primary);
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
 }
 .goal-manager-item .progress-track,
 .pool-manager-item .progress-track {
@@ -2873,7 +2874,7 @@ tbody tr:hover {
   outline: none;
   color: var(--text);
   background: var(--panel);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .panel-action {
   color: var(--light);
@@ -2889,11 +2890,11 @@ tbody tr:hover {
 }
 .health-score strong {
   color: var(--mint);
-  font-size: 22px;
+  font-size: calc(22px * var(--text-scale, 1));
 }
 .health-score span {
   color: var(--light);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .score-factors {
   display: grid;
@@ -2917,7 +2918,7 @@ tbody tr:hover {
   justify-content: center;
   border-radius: 11px;
   color: #fff;
-  font-size: 20px;
+  font-size: calc(20px * var(--text-scale, 1));
 }
 .blue-fill {
   background: linear-gradient(135deg, #55a9f4, #4285e5);
@@ -2937,15 +2938,15 @@ tbody tr:hover {
   flex-direction: column;
 }
 .factor-info strong {
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .factor-info span {
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .factor-pts {
   color: var(--mint);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .reports-chart-grid {
   display: grid;
@@ -2986,22 +2987,22 @@ tbody tr:hover {
   align-items: center;
   gap: 8px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 .legend-item b {
   color: var(--text);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   text-align: right;
 }
 .legend-item em {
   display: block;
   color: var(--light);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   font-style: normal;
 }
 .trend-summary {
   color: var(--primary);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   font-weight: 800;
 }
 .report-line-chart,
@@ -3016,7 +3017,7 @@ tbody tr:hover {
   justify-content: space-between;
   padding-bottom: 24px;
   color: var(--light);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .report-chart-stage {
   display: flex;
@@ -3047,13 +3048,13 @@ tbody tr:hover {
   display: flex;
   justify-content: space-between;
   color: var(--light);
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
 }
 .chart-indicators {
   display: flex;
   gap: 12px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .chart-indicators span {
   display: flex;
@@ -3087,7 +3088,7 @@ tbody tr:hover {
   align-items: center;
   gap: 8px;
   color: var(--light);
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
 }
 .report-bar-pair {
   display: flex;
@@ -3119,11 +3120,11 @@ tbody tr:hover {
   display: flex;
   justify-content: space-between;
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .progress-meta b {
   color: var(--text);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .bar-track {
   height: 9px;
@@ -3152,7 +3153,7 @@ tbody tr:hover {
 }
 .settings-group-label {
   color: var(--primary);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   font-weight: 800;
   letter-spacing: 1.5px;
   padding: 0 8px 3px;
@@ -3160,11 +3161,11 @@ tbody tr:hover {
 }
 .settings-heading h1 {
   margin: 8px 0;
-  font-size: 32px;
+  font-size: calc(32px * var(--text-scale, 1));
 }
 .settings-heading p:not(.eyebrow-app) {
   color: var(--muted);
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
 }
 .settings-profile {
   display: flex;
@@ -3179,7 +3180,7 @@ tbody tr:hover {
   justify-content: center;
   border-radius: 50%;
   background: #fde5d4;
-  font-size: 27px;
+  font-size: calc(27px * var(--text-scale, 1));
 }
 .settings-profile span:last-child {
   display: flex;
@@ -3188,7 +3189,7 @@ tbody tr:hover {
 .settings-profile small {
   margin-top: 3px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .settings-layout {
   display: grid;
@@ -3234,7 +3235,7 @@ tbody tr:hover {
   justify-content: center;
   flex-shrink: 0;
   border-radius: 11px;
-  font-size: 20px;
+  font-size: calc(20px * var(--text-scale, 1));
 }
 .green-icon {
   color: var(--green);
@@ -3251,11 +3252,11 @@ tbody tr:hover {
   gap: 4px;
 }
 .settings-copy strong {
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
 }
 .settings-copy small {
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   line-height: 1.4;
 }
 .settings-select,
@@ -3265,7 +3266,7 @@ tbody tr:hover {
   outline: 0;
   color: var(--primary);
   background: transparent;
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   font-weight: 700;
   text-align: center;
 }
@@ -3300,7 +3301,7 @@ tbody tr:hover {
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   font-weight: 600;
   text-align: center;
 }
@@ -3350,7 +3351,7 @@ tbody tr:hover {
   box-shadow: var(--shadow);
 }
 .panel-header h2 {
-  font-size: 18px;
+  font-size: calc(18px * var(--text-scale, 1));
   margin-bottom: 4px;
 }
 .profile-grid {
@@ -3363,7 +3364,7 @@ tbody tr:hover {
   flex-direction: column;
   gap: 6px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   font-weight: 700;
 }
 .field.full {
@@ -3394,7 +3395,7 @@ tbody tr:hover {
   border: 0;
   border-radius: 10px;
   padding: 11px 15px;
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   font-weight: 800;
   cursor: pointer;
   transition: 0.22s;
@@ -3417,23 +3418,23 @@ tbody tr:hover {
   background: var(--panel-alt);
 }
 .data-card h3 {
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
 }
 .data-card p {
   margin: 5px 0 13px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 .danger-panel {
   border-color: rgba(219, 82, 117, 0.5);
 }
 .danger-panel h2 {
   color: var(--red);
-  font-size: 18px;
+  font-size: calc(18px * var(--text-scale, 1));
 }
 .danger-panel p {
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 .danger-actions {
   display: flex;
@@ -3445,7 +3446,7 @@ tbody tr:hover {
   gap: 8px;
   margin: 4px 8px;
   color: var(--light);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   line-height: 1.5;
 }
 .contact-dock-backdrop {
@@ -3516,11 +3517,11 @@ tbody tr:hover {
   border-radius: 20px;
   color: var(--primary);
   background: #eee7ff;
-  font-size: 30px;
+  font-size: calc(30px * var(--text-scale, 1));
 }
 .contact-hero > p:last-child {
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   line-height: 1.6;
 }
 
@@ -3538,7 +3539,7 @@ tbody tr:hover {
   border-radius: 11px;
   color: var(--primary);
   background: #eee7ff;
-  font-size: 20px;
+  font-size: calc(20px * var(--text-scale, 1));
   transition: 0.2s;
 }
 .profile-dropdown-toggle:hover {
@@ -3574,7 +3575,7 @@ tbody tr:hover {
   border-radius: 10px;
   color: var(--text);
   text-decoration: none;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   font-weight: 500;
   transition: all 0.15s ease;
   cursor: pointer;
@@ -3584,7 +3585,7 @@ tbody tr:hover {
   transform: translateX(2px);
 }
 .profile-dropdown-item i {
-  font-size: 16px;
+  font-size: calc(16px * var(--text-scale, 1));
   color: var(--muted);
 }
 .profile-dropdown-item span {
@@ -3611,7 +3612,7 @@ tbody tr:hover {
 }
 .budget-visual > b {
   color: var(--primary);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 /* --- 8. MEDIA QUERIES --- */
 
@@ -3923,10 +3924,10 @@ tbody tr:hover {
     gap: 70px;
   }
   .hero h1 {
-    font-size: 64px;
+    font-size: calc(64px * var(--text-scale, 1));
   }
   .hero p {
-    font-size: 18px;
+    font-size: calc(18px * var(--text-scale, 1));
     line-height: 32px;
   }
   .hero-image img {
@@ -3971,10 +3972,10 @@ tbody tr:hover {
     margin: 145px auto 100px;
   }
   .hero-content h1 {
-    font-size: 56px;
+    font-size: calc(56px * var(--text-scale, 1));
   }
   .hero-content p {
-    font-size: 17px;
+    font-size: calc(17px * var(--text-scale, 1));
   }
   .hero-visual {
     min-height: 360px;
@@ -3986,10 +3987,10 @@ tbody tr:hover {
     flex: 1;
   }
   .contact-hero h1 {
-    font-size: 52px;
+    font-size: calc(52px * var(--text-scale, 1));
   }
   .contact-hero p {
-    font-size: 17px;
+    font-size: calc(17px * var(--text-scale, 1));
   }
   .contact-panel {
     padding: 28px;
@@ -4009,7 +4010,7 @@ tbody tr:hover {
     padding: 32px 22px;
   }
   .form-wrap h2 {
-    font-size: 28px;
+    font-size: calc(28px * var(--text-scale, 1));
   }
   .field-heading {
     align-items: flex-start;
@@ -4052,6 +4053,50 @@ tbody tr:hover {
     grid-template-columns: repeat(2, 1fr);
   }
   .page-intro h1 {
-    font-size: 27px;
+    font-size: calc(27px * var(--text-scale, 1));
   }
 }
+
+/* --- Text size setting (Settings > Appearance). Every font-size above is multiplied by --text-scale --- */
+html[data-text-size="compact"] { --text-scale: 0.9; }
+html[data-text-size="comfortable"] { --text-scale: 1; }
+html[data-text-size="large"] { --text-scale: 1.18; }
+
+/* --- Split tracker (uses the same theme variables as the rest of the app, so light/dark follow automatically) --- */
+.tracker-head-stats { display: flex; flex-wrap: wrap; gap: 10px; }
+.tracker-chip { min-width: 120px; padding: 9px 14px; border: 1px solid var(--border); border-radius: 14px; background: var(--panel-alt); color: var(--muted); font-size: calc(12px * var(--text-scale, 1)); }
+.tracker-chip b { display: block; color: var(--text); font-size: calc(17px * var(--text-scale, 1)); }
+.tracker-chip.owed b { color: var(--mint); }
+.tracker-chip.owe b { color: var(--coral); }
+.tracker-sub { display: flex; align-items: center; justify-content: space-between; margin: 22px 0 10px; color: var(--text); font-size: calc(14px * var(--text-scale, 1)); font-weight: 800; }
+.tracker-sub small { color: var(--muted); font-weight: 600; }
+.history-list { display: flex; max-height: 310px; flex-direction: column; gap: 8px; overflow: auto; padding-right: 2px; }
+.history-row { display: grid; grid-template-columns: 1fr auto auto auto; align-items: center; gap: 14px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 14px; background: var(--panel-alt); color: var(--muted); font-size: calc(12.5px * var(--text-scale, 1)); }
+.history-row strong { color: var(--text); font-size: calc(14px * var(--text-scale, 1)); }
+.history-row > b { color: var(--text); }
+.status-badge { padding: 4px 11px; border-radius: 999px; font-size: calc(11px * var(--text-scale, 1)); font-weight: 800; white-space: nowrap; }
+.status-badge.settled { background: var(--mint-bg); color: var(--mint); }
+.status-badge.partial { background: var(--gold-bg); color: var(--gold); }
+.status-badge.pending { background: var(--pink-bg); color: var(--coral); }
+.pending-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(290px, 100%), 1fr)); gap: 14px; }
+.split-card { display: flex; flex-direction: column; gap: 12px; padding: 16px; border: 1px solid var(--border); border-radius: 18px; background: var(--panel-alt); }
+.split-card.highlight { outline: 2px solid var(--primary); }
+.split-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.split-card-top strong { display: block; color: var(--text); font-size: calc(15px * var(--text-scale, 1)); }
+.split-card-top small, .owe-row small { color: var(--muted); font-size: calc(12px * var(--text-scale, 1)); }
+.owe-list { display: flex; flex-direction: column; gap: 8px; }
+.owe-row { display: flex; align-items: center; gap: 10px; padding: 9px 11px; border: 1px solid var(--border); border-radius: 13px; background: var(--panel); }
+.owe-row.paid { opacity: 0.72; }
+.owe-row.overall { margin-top: 2px; border-style: dashed; }
+.owe-row .who { min-width: 0; flex: 1; }
+.owe-row .who strong { display: block; color: var(--text); font-size: calc(13.5px * var(--text-scale, 1)); }
+.owe-row > b { color: var(--text); font-size: calc(13.5px * var(--text-scale, 1)); }
+.switch { position: relative; display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: calc(11.5px * var(--text-scale, 1)); font-weight: 700; cursor: pointer; user-select: none; }
+.switch input { position: absolute; width: 0; height: 0; opacity: 0; }
+.switch i { position: relative; width: 38px; height: 22px; flex-shrink: 0; border-radius: 999px; background: var(--track); transition: background 0.2s; }
+.switch i:after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: var(--toggle-knob, #fff); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25); transition: transform 0.2s; }
+.switch input:checked + i { background: var(--mint); }
+.switch input:checked + i:after { transform: translateX(16px); background: #fff; }
+.switch input:focus-visible + i { outline: 2px solid var(--primary); outline-offset: 2px; }
+.switch span { min-width: 52px; }
+@media (max-width: 640px) { .history-row { grid-template-columns: 1fr auto; } .history-row .status-badge { justify-self: start; } }

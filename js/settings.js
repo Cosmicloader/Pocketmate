@@ -1,0 +1,26 @@
+PM.ready.then(() => {
+  const usr = PM.guard(); if (!usr) return;
+  PM.initTheme(); PM.wireNav();
+  const $ = (id) => document.getElementById(id), root = document.documentElement, d = PM.db(), say = (el, t, bad) => { el.textContent = t; el.style.color = bad ? 'var(--coral)' : ''; };
+  const fill = () => { const u = PM.user(); $('headingName').textContent = u.name; $('profileName').value = u.name; $('profileEmail').value = u.email; $('profileUsername').value = u.email.split('@')[0]; $('profileType').value = u.accountType || 'Student account'; document.querySelector('.field.full input[readonly]').value = new Date(u.createdAt).toLocaleDateString('en-IN', { month: 'long', year: 'numeric' }); $('contactName').value = u.name; $('contactEmail').value = u.email; };
+  fill();
+  $('masterThemeToggle').checked = root.dataset.theme === 'dark';
+  $('masterThemeToggle').onchange = (e) => { root.dataset.theme = e.target.checked ? 'dark' : 'light'; localStorage.setItem('pocketmate-theme', root.dataset.theme); };
+  $('textSize').value = root.dataset.textSize; $('textSize').onchange = (e) => { root.dataset.textSize = e.target.value; localStorage.setItem('pocketmate-text-size', e.target.value); };
+  $('currencySelect').value = d.settings.currency; $('currencySelect').onchange = (e) => { d.settings.currency = e.target.value; PM.commit(); say($('dataStatus'), 'Currency set. Amounts are shown in the new symbol; no exchange-rate conversion is applied.'); };
+  $('budgetCycle').value = d.settings.budgetCycle; $('budgetCycle').onchange = (e) => { d.settings.budgetCycle = e.target.value; PM.commit(); say($('dataStatus'), 'Budget cycle updated. Re-check your budget amount on Expense Manager.'); };
+  $('profileForm').onsubmit = (e) => { e.preventDefault(); try { PM.updateProfile({ name: $('profileName').value, email: $('profileEmail').value, accountType: $('profileType').value }); fill(); say($('profileStatus'), 'Profile details saved.'); } catch (x) { say($('profileStatus'), x.message, 1); } };
+  $('profileForm').insertAdjacentHTML('afterend', `<form id="pwForm" class="profile-grid" style="margin-top:18px"><label class="field">Current password<input id="pwCur" type="password" autocomplete="current-password" required></label><label class="field">New password<input id="pwNew" type="password" minlength="8" autocomplete="new-password" required></label><div class="action-row field full"><button class="btn-soft" type="submit">Change password</button><p id="pwStatus" class="status-message"></p></div></form>`);
+  $('pwForm').onsubmit = async (e) => { e.preventDefault(); try { await PM.changePassword($('pwCur').value, $('pwNew').value); e.target.reset(); say($('pwStatus'), 'Password changed.'); } catch (x) { say($('pwStatus'), x.message, 1); } };
+  $('exportCsv').onclick = () => { PM.download(PM.csv(), 'pocketmate-transactions.csv', 'text/csv'); say($('dataStatus'), d.transactions.length + ' transactions exported.'); };
+  $('exportPreferences').onclick = () => { const u = PM.user(); PM.download(JSON.stringify({ theme: root.dataset.theme, textSize: root.dataset.textSize, currency: d.settings.currency, budgetCycle: d.settings.budgetCycle, profile: { name: u.name, email: u.email, accountType: u.accountType } }, null, 2), 'pocketmate-preferences.json', 'application/json'); say($('dataStatus'), 'Preferences backup downloaded.'); };
+  $('resetAccount').onclick = () => { if (confirm('Erase all your transactions, goals, pools, bills and splits? Your login stays.')) { PM.resetData(); say($('dangerStatus'), 'Account data reset.'); setTimeout(() => location.reload(), 600); } };
+  $('deleteAccount').onclick = () => { if (confirm('Permanently delete this account and all its data on this device?')) PM.deleteAccount(); };
+  $('logoutButton').onclick = () => { if (confirm('Log out of PocketMate?')) PM.logout(); };
+  const bd = $('contactBackdrop'), dock = $('contactDock'), tog = (o) => { bd.classList.toggle('open', o); dock.classList.toggle('open', o); dock.setAttribute('aria-hidden', String(!o)); };
+  ['contactSettingsButton', 'helpButton'].forEach((i) => ($(i).onclick = () => tog(true))); $('closeContactDock').onclick = () => tog(false); bd.onclick = () => tog(false);
+  $('contactForm').onsubmit = (e) => { e.preventDefault(); PM.saveContact({ name: $('contactName').value, email: $('contactEmail').value, topic: $('contactTopic').value, message: $('contactMessage').value }); say($('contactStatus'), 'Message saved. Delivery to our support inbox arrives with the server phase.'); $('contactMessage').value = ''; };
+  const pd = $('profileDropdown'); pd.querySelector('.profile-dropdown-toggle').onclick = (e) => { e.stopPropagation(); pd.classList.toggle('open'); };
+  document.addEventListener('click', (e) => { if (!pd.contains(e.target)) pd.classList.remove('open'); });
+  const it = pd.querySelectorAll('.profile-dropdown-item'); it.forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); pd.classList.remove('open'); if (a.textContent.includes('Log Out')) PM.logout(); else if (a.textContent.includes('Edit')) $('profileName').focus(); else if (a.textContent.includes('Account')) $('pwCur').focus(); else window.scrollTo({ top: 0, behavior: 'smooth' }); }));
+});

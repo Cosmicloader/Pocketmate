@@ -7,6 +7,8 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/polish.css" />
+      <script src="js/pm-core.js"></script>
   </head>
   <body class="page-homepage">
     <header>
@@ -30,7 +32,7 @@
         ></label>
       </div>
       <nav class="top-nav">
-        <a href="index.html" class="active">Home</a
+        <a href="homepage.html" class="active">Home</a
         ><a href="about.html">About Us</a><a href="contact.html">Contact Us</a>
       </nav>
       <div class="desktop-buttons">
@@ -46,7 +48,7 @@
       </div>
     </header>
     <nav class="bottom-nav">
-      <a href="index.html" class="active"
+      <a href="homepage.html" class="active"
         ><span class="icon"><i class="ph ph-house"></i></span
         ><span>Home</span></a
       ><a href="about.html"
@@ -140,7 +142,7 @@
         <div class="footer-links">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="homepage.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="contact.html">Contact Us</a></li>
             <li><a href="signin.html">Sign In</a></li>
@@ -175,5 +177,6 @@
       d.addEventListener("change", theme);
       m.addEventListener("change", theme);
     </script>
+  <script>PM.ready.then(PM.wireNav)</script>
   </body>
 </html>

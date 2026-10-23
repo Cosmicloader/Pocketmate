@@ -7,6 +7,8 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/polish.css" />
+      <script src="js/pm-core.js"></script>
   </head>
   <body class="page-index">
     <main class="loading-screen">
@@ -29,9 +31,9 @@
       </section>
     </main>
     <script>
-      setTimeout(function () {
-        window.location.href = "homepage.html";
-      }, 5000);
+      var go=function(){location.href=PM.session()?"dashboard.html":"homepage.html"};
+      PM.ready.then(function(){setTimeout(go,5000)});
+      document.addEventListener("click",go);
     </script>
   </body>
 </html>
