@@ -6,15 +6,20 @@ PM.ready.then(() => {
   const err = document.createElement('p'); err.className = 'status-message'; err.setAttribute('role', 'alert'); err.style.color = 'var(--coral)';
   f.querySelector('.submit-button').before(err);
   const btn = f.querySelector('.submit-button'), label = btn.innerHTML;
+  if (si && new URLSearchParams(location.search).get('registered') === '1') { // arrived here straight after signing up
+    err.style.color = 'var(--ok-ink, #0f7a5a)'; err.textContent = 'Account created successfully. Please sign in to continue.';
+    const pf = sessionStorage.getItem('pm:v1:prefill'); sessionStorage.removeItem('pm:v1:prefill'); if (pf) $('signin-email').value = pf; $('signin-password').focus();
+  }
   const busy = (b) => { btn.disabled = b; btn.innerHTML = b ? 'Please wait…' : label; };
   f.addEventListener('submit', async (e) => {
-    e.preventDefault(); err.textContent = ''; busy(true);
+    e.preventDefault(); err.textContent = ''; err.style.color = 'var(--coral)'; busy(true);
     try {
       if (si) { await PM.login($('signin-email').value, $('signin-password').value, $('signin-remember').checked); location.href = go(); }
       else {
         if ($('signup-password').value !== $('signup-confirm-password').value) throw new Error('Passwords do not match.');
         await PM.signup({ name: $('signup-name').value, email: $('signup-email').value, password: $('signup-password').value });
-        await PM.login($('signup-email').value, $('signup-password').value, true); location.href = 'dashboard.html';
+        sessionStorage.setItem('pm:v1:prefill', $('signup-email').value.trim().toLowerCase()); // remembered only to pre-fill the sign-in form
+        location.href = 'signin.html?registered=1'; // account exists, but the user is NOT signed in yet
       }
     } catch (x) { err.textContent = x.message; busy(false); }
   });
